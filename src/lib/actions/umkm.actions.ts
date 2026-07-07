@@ -79,7 +79,7 @@ export async function createUmkmAction(_state: typeof initialUmkmState, formData
   });
 
   if (error) {
-    return actionErrorState<UmkmValues>(error.message, values);
+    return actionErrorState<UmkmValues>("Gagal menyimpan UMKM. Coba lagi beberapa saat lagi.", values);
   }
 
   revalidateUmkmPaths();
@@ -131,7 +131,7 @@ export async function updateUmkmAction(id: string, _state: typeof initialUmkmSta
     .eq("id", id);
 
   if (error) {
-    return actionErrorState<UmkmValues>(error.message, values);
+    return actionErrorState<UmkmValues>("Gagal memperbarui UMKM. Coba lagi beberapa saat lagi.", values);
   }
 
   if (imageUrl !== current.image_url) {
@@ -149,7 +149,7 @@ export async function deleteUmkmAction(id: string) {
   const { error } = await supabase.from("umkm").delete().eq("id", id);
 
   if (error) {
-    redirect(redirectWithError("/admin/umkm", error.message));
+    redirect(redirectWithError("/admin/umkm", "Gagal menghapus UMKM. Coba lagi beberapa saat lagi."));
   }
 
   await removeImageByUrl(supabase, current?.image_url);

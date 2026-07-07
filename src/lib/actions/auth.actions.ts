@@ -23,20 +23,19 @@ export async function loginAction(_state: typeof initialLoginState, formData: Fo
 
   const supabase = await createClient();
 
+  // Use the secure RPC to look up email — avoids direct anon SELECT on profiles table
   let email: string | null = null;
   let dbError = false;
 
   try {
-    const profileResult = await supabase
-      .from("profiles")
-      .select("email")
-      .eq("username", validated.data.username)
-      .maybeSingle();
+    const { data, error: rpcError } = await supabase.rpc("get_email_by_username", {
+      p_username: validated.data.username,
+    });
 
-    if (profileResult.error) {
+    if (rpcError) {
       dbError = true;
     } else {
-      email = profileResult.data?.email || null;
+      email = (data as string | null) ?? null;
     }
   } catch {
     dbError = true;
@@ -55,6 +54,7 @@ export async function loginAction(_state: typeof initialLoginState, formData: Fo
       password: "",
     });
   }
+
 
   // Sign in using the mapped email and password
   const { error } = await supabase.auth

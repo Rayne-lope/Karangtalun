@@ -73,7 +73,7 @@ export async function createNewsAction(_state: typeof initialNewsState, formData
   });
 
   if (error) {
-    return actionErrorState<NewsValues>(error.message, values);
+    return actionErrorState<NewsValues>("Gagal menyimpan berita. Coba lagi beberapa saat lagi.", values);
   }
 
   revalidateNewsPaths();
@@ -127,7 +127,7 @@ export async function updateNewsAction(id: string, _state: typeof initialNewsSta
     .eq("id", id);
 
   if (error) {
-    return actionErrorState<NewsValues>(error.message, values);
+    return actionErrorState<NewsValues>("Gagal memperbarui berita. Coba lagi beberapa saat lagi.", values);
   }
 
   if (imageUrl !== current.cover_image_url) {
@@ -150,7 +150,7 @@ export async function deleteNewsAction(id: string) {
   const { error } = await supabase.from("news").delete().eq("id", id);
 
   if (error) {
-    redirect(redirectWithError("/admin/berita", error.message));
+    redirect(redirectWithError("/admin/berita", "Gagal menghapus berita. Coba lagi beberapa saat lagi."));
   }
 
   await removeImageByUrl(supabase, current?.cover_image_url);

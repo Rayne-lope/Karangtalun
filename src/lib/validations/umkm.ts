@@ -1,12 +1,31 @@
 import { z } from "zod";
 
 const phonePattern = /^[0-9+()\-\s.]*$/;
-const optionalUrl = (message: string) =>
-  z
+
+// Validates a URL is a genuine HTTPS URL from an allowed domain
+function safeUrl(allowedHosts: string[], message: string) {
+  return z
     .string()
-    .url(message)
+    .refine(
+      (val) => {
+        if (!val || val === "") return true; // optional — empty is fine
+        try {
+          const url = new URL(val);
+          // Must be https
+          if (url.protocol !== "https:") return false;
+          // Hostname must match one of the allowed domains (exact or subdomain)
+          return allowedHosts.some(
+            (host) => url.hostname === host || url.hostname.endsWith(`.${host}`)
+          );
+        } catch {
+          return false;
+        }
+      },
+      { message }
+    )
     .nullable()
     .or(z.literal(""));
+}
 
 export const umkmSchema = z.object({
   name: z
@@ -27,8 +46,16 @@ export const umkmSchema = z.object({
     .regex(phonePattern, "Nomor WhatsApp hanya boleh berisi angka dan simbol telepon.")
     .max(30, "Nomor WhatsApp maksimal 30 karakter.")
     .nullable(),
-  instagram_url: optionalUrl("URL Instagram tidak valid. Contoh: https://instagram.com/namausaha"),
-  map_url: optionalUrl("URL peta tidak valid. Gunakan link lengkap dari Google Maps."),
+  // Restrict instagram_url to Instagram domains only
+  instagram_url: safeUrl(
+    ["instagram.com", "www.instagram.com"],
+    "URL Instagram tidak valid. Gunakan link https://instagram.com/... atau https://www.instagram.com/..."
+  ),
+  // Restrict map_url to Google Maps domains only
+  map_url: safeUrl(
+    ["maps.google.com", "www.google.com", "goo.gl", "maps.app.goo.gl"],
+    "URL peta tidak valid. Gunakan link Google Maps yang valid (maps.google.com atau goo.gl)."
+  ),
   category_id: z.string().uuid().nullable(),
   status: z.enum(["active", "inactive", "archived"], {
     error: "Pilih status UMKM yang valid.",

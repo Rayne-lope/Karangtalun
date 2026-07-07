@@ -67,7 +67,7 @@ export async function createGalleryAction(_state: typeof initialGalleryState, fo
   });
 
   if (error) {
-    return actionErrorState<GalleryValues>(error.message, values);
+    return actionErrorState<GalleryValues>("Gagal menyimpan foto galeri. Coba lagi beberapa saat lagi.", values);
   }
 
   revalidateGalleryPaths();
@@ -115,7 +115,7 @@ export async function updateGalleryAction(id: string, _state: typeof initialGall
     .eq("id", id);
 
   if (error) {
-    return actionErrorState<GalleryValues>(error.message, values);
+    return actionErrorState<GalleryValues>("Gagal memperbarui foto galeri. Coba lagi beberapa saat lagi.", values);
   }
 
   if (imageUrl !== current.image_url) {
@@ -133,7 +133,7 @@ export async function deleteGalleryAction(id: string) {
   const { error } = await supabase.from("gallery").delete().eq("id", id);
 
   if (error) {
-    redirect(redirectWithError("/admin/galeri", error.message));
+    redirect(redirectWithError("/admin/galeri", "Gagal menghapus foto. Coba lagi beberapa saat lagi."));
   }
 
   await removeImageByUrl(supabase, current?.image_url);
