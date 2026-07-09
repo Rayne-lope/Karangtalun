@@ -35,16 +35,16 @@ export default async function Home() {
               <Link href="/" className="header-brand">
                 <Image 
                   src="/images/karanz.png" 
-                  alt="Logo Desa Karangtalun" 
+                  alt="Logo Dusun Karangtalun" 
                   width={26} 
                   height={26} 
                   className="object-contain"
                 />
-                <span>Desa Karangtalun</span>
+                <span>Dusun Karangtalun</span>
               </Link>
 
               <nav className="hero-nav" aria-label="Navigasi utama">
-                <Link href="/profil">Profil Desa</Link>
+                <Link href="/profil">Profil Dusun</Link>
                 <Link href="/umkm">Potensi UMKM</Link>
                 <Link href="/galeri">Galeri Dokumenter</Link>
               </nav>
@@ -57,12 +57,12 @@ export default async function Home() {
                 <span className="hero-kicker">Kuliah Kerja Nyata 2026</span>
                 <h1 className="hero-title">Karangtalun</h1>
                 <p className="hero-subtitle">
-                  Gerbang informasi desa untuk memperkenalkan profil wilayah, dokumentasi pengabdian,
-                  potensi UMKM, data desa, serta arsip kegiatan KKN secara ringkas dan tertata.
+                  Gerbang informasi dusun untuk memperkenalkan profil wilayah, dokumentasi pengabdian,
+                  potensi UMKM, data dusun, serta arsip kegiatan KKN secara ringkas dan tertata.
                 </p>
 
                 <div className="hero-actions">
-                  <Link href="/profil" className="pill-button">Profil Desa</Link>
+                  <Link href="/profil" className="pill-button">Profil Dusun</Link>
                   <Link href="/galeri" className="pill-button">Galeri Dokumenter</Link>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default async function Home() {
                 <div>
                   <div className="quick-icon">◇</div>
                   <h3>Katalog UMKM</h3>
-                  <p>Akses produk kriya, kuliner, kopi warga, serta profil usaha lokal yang terdata dalam program desa.</p>
+                  <p>Akses produk kriya, kuliner, kopi warga, serta profil usaha lokal yang terdata dalam program dusun.</p>
                 </div>
                 <Link href="/umkm" className="discover-link">
                   Jelajahi Produk <span className="arrow">→</span>
@@ -100,7 +100,7 @@ export default async function Home() {
                 <div>
                   <div className="quick-icon">◐</div>
                   <h3>Galeri Lensa</h3>
-                  <p>Dokumentasi visual pengabdian, lanskap desa, interaksi warga, dan momen kegiatan mahasiswa.</p>
+                  <p>Dokumentasi visual pengabdian, lanskap dusun, interaksi warga, dan momen kegiatan mahasiswa.</p>
                 </div>
                 <Link href="/galeri" className="discover-link">
                   Lihat Album <span className="arrow">→</span>
@@ -110,13 +110,13 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* 3. Papan Navigasi Direktori Desa */}
+        {/* 3. Papan Navigasi Direktori Dusun */}
         <section className="directory" id="direktori">
           <div className="container">
             <div className="directory-shell">
               <aside className="directory-intro">
-                <span className="section-tag">Direktori Navigasi Desa</span>
-                <h2>Papan akses utama informasi desa.</h2>
+                <span className="section-tag">Direktori Navigasi Dusun</span>
+                <h2>Papan akses utama informasi dusun.</h2>
                 <p>
                   Direktori dibuat sebagai shortcut bersih untuk membuka halaman penting:
                   berita, UMKM, profil, sejarah, struktur pemerintahan, data statistik, peta wilayah, hingga kontak resmi.
@@ -144,7 +144,7 @@ export default async function Home() {
                   </div>
                   <div className="dir-content">
                     <span className="dir-title">Berita & Kegiatan</span>
-                    <span className="dir-desc">Kabar desa, agenda warga, dan laporan aktivitas KKN.</span>
+                    <span className="dir-desc">Kabar dusun, agenda warga, dan laporan aktivitas KKN.</span>
                   </div>
                   <div className="dir-footer">
                     <span className="dir-slug">/berita</span>
@@ -178,7 +178,7 @@ export default async function Home() {
                   </div>
                   <div className="dir-content">
                     <span className="dir-title">Galeri Dokumentasi</span>
-                    <span className="dir-desc">Foto kegiatan, lanskap desa, and dokumentasi pengabdian.</span>
+                    <span className="dir-desc">Foto kegiatan, lanskap dusun, and dokumentasi pengabdian.</span>
                   </div>
                   <div className="dir-footer">
                     <span className="dir-slug">/galeri</span>
@@ -194,8 +194,8 @@ export default async function Home() {
                     <span className="dir-number">04</span>
                   </div>
                   <div className="dir-content">
-                    <span className="dir-title">Profil Desa</span>
-                    <span className="dir-desc">Identitas wilayah, kondisi umum, potensi lokal, dan informasi resmi desa.</span>
+                    <span className="dir-title">Profil Dusun</span>
+                    <span className="dir-desc">Identitas wilayah, kondisi umum, potensi lokal, dan informasi resmi dusun.</span>
                   </div>
                   <div className="dir-footer">
                     <span className="dir-slug">/profil</span>
@@ -211,7 +211,7 @@ export default async function Home() {
                     <span className="dir-number">05</span>
                   </div>
                   <div className="dir-content">
-                    <span className="dir-title">Sejarah Desa</span>
+                    <span className="dir-title">Sejarah Dusun</span>
                     <span className="dir-desc">Catatan asal-usul, cerita lokal, dan perkembangan Karangtalun.</span>
                   </div>
                   <div className="dir-footer">
@@ -220,7 +220,7 @@ export default async function Home() {
                   </div>
                 </Link>
 
-                <Link href="/visi-misi" className="directory-item">
+                <Link href="/proker-kkn" className="directory-item">
                   <div className="dir-top">
                     <span className="dir-icon">
                       <Target className="w-5 h-5" />
@@ -228,16 +228,16 @@ export default async function Home() {
                     <span className="dir-number">06</span>
                   </div>
                   <div className="dir-content">
-                    <span className="dir-title">Visi & Misi</span>
-                    <span className="dir-desc">Arah pembangunan dan tujuan pengembangan desa.</span>
+                    <span className="dir-title">Proker KKN</span>
+                    <span className="dir-desc">Arah pembangunan dan tujuan pengembangan dusun.</span>
                   </div>
                   <div className="dir-footer">
-                    <span className="dir-slug">/visi-misi</span>
+                    <span className="dir-slug">/proker-kkn</span>
                     <span className="dir-arrow">→</span>
                   </div>
                 </Link>
 
-                <Link href="/struktur-desa" className="directory-item">
+                <Link href="/struktur-dusun" className="directory-item">
                   <div className="dir-top">
                     <span className="dir-icon">
                       <Users className="w-5 h-5" />
@@ -246,15 +246,15 @@ export default async function Home() {
                   </div>
                   <div className="dir-content">
                     <span className="dir-title">Struktur Pemerintahan</span>
-                    <span className="dir-desc">Susunan perangkat desa dan bagian pelayanan pemerintahan.</span>
+                    <span className="dir-desc">Susunan perangkat dusun dan bagian pelayanan pemerintahan.</span>
                   </div>
                   <div className="dir-footer">
-                    <span className="dir-slug">/struktur-desa</span>
+                    <span className="dir-slug">/struktur-dusun</span>
                     <span className="dir-arrow">→</span>
                   </div>
                 </Link>
 
-                <Link href="/data-desa" className="directory-item">
+                <Link href="/data-dusun" className="directory-item">
                   <div className="dir-top">
                     <span className="dir-icon">
                       <BarChart3 className="w-5 h-5" />
@@ -266,7 +266,7 @@ export default async function Home() {
                     <span className="dir-desc">Ringkasan data kependudukan, sanitasi, UMKM, dan indikator wilayah.</span>
                   </div>
                   <div className="dir-footer">
-                    <span className="dir-slug">/data-desa</span>
+                    <span className="dir-slug">/data-dusun</span>
                     <span className="dir-arrow">→</span>
                   </div>
                 </Link>
@@ -280,7 +280,7 @@ export default async function Home() {
                   </div>
                   <div className="dir-content">
                     <span className="dir-title">Peta Wilayah</span>
-                    <span className="dir-desc">Tautan menuju peta digital desa, titik potensi, dan informasi batas wilayah.</span>
+                    <span className="dir-desc">Tautan menuju peta digital dusun, titik potensi, dan informasi batas wilayah.</span>
                   </div>
                   <div className="dir-footer">
                     <span className="dir-slug">/peta</span>
@@ -297,7 +297,7 @@ export default async function Home() {
                   </div>
                   <div className="dir-content">
                     <span className="dir-title">Hubungi Kami</span>
-                    <span className="dir-desc">Kontak resmi pemerintah desa Karangtalun dan tim KKN UPN.</span>
+                    <span className="dir-desc">Kontak resmi kepengurusan dusun Karangtalun dan tim KKN UPN.</span>
                   </div>
                   <div className="dir-footer">
                     <span className="dir-slug">/kontak</span>
@@ -309,15 +309,15 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* 4. Showcase Profil Desa */}
+        {/* 4. Showcase Profil Dusun */}
         <section className="section showcase-profile" id="profil">
           <div className="container">
             <div className="profile-container">
               <div className="profile-left">
                 <span className="section-tag">Kearifan Lokal & Demografi</span>
-                <h2>Menyelami potensi desa yang tumbuh dari warga dan ruang hidupnya.</h2>
+                <h2>Menyelami potensi dusun yang tumbuh dari warga dan ruang hidupnya.</h2>
                 <p>
-                  Karangtalun ditampilkan sebagai desa dengan potensi pertanian, kriya lokal,
+                  Karangtalun ditampilkan sebagai dusun dengan potensi pertanian, kriya lokal,
                   pengembangan sanitasi, dan kolaborasi program KKN. Bagian ini diisi
                   dengan data demografi, potensi unggulan, serta ringkasan program kerja yang
                   relevan dengan kebutuhan masyarakat.
@@ -331,11 +331,11 @@ export default async function Home() {
               </div>
 
               <aside className="profile-right">
-                <h3>Kontak Resmi Desa</h3>
+                <h3>Kontak Resmi Dusun</h3>
 
                 <div className="contact-list">
                   <div className="contact-row">
-                    <span className="contact-label">Alamat Kantor Desa</span>
+                    <span className="contact-label">Alamat Kantor Dusun</span>
                     <span className="contact-value">Jangkang, Karangtalun, Ngluwar, Magelang, Jawa Tengah 56485</span>
                   </div>
 
@@ -355,23 +355,23 @@ export default async function Home() {
                   </div>
                 </div>
 
-                <a href="/documents/profil-desa.pdf" download className="btn-download">
-                  Download Profil Desa PDF
+                <a href="/documents/profil-dusun.pdf" download className="btn-download">
+                  Download Profil Dusun PDF
                 </a>
               </aside>
             </div>
           </div>
         </section>
 
-        {/* 5. Kabar Desa & Catatan Bakti */}
+        {/* 5. Kabar Dusun & Catatan Bakti */}
         <section className="section dynamic-grid-section" id="berita">
           <div className="container">
             <div className="section-header">
               <div className="section-copy">
-                <span className="section-tag">Kabar Desa & Catatan Bakti</span>
+                <span className="section-tag">Kabar Dusun & Catatan Bakti</span>
                 <h2 className="section-title">Berita terbaru dari Karangtalun.</h2>
                 <p className="section-desc">
-                  Kabar aktual pengabdian masyarakat KKN, perkembangan teknologi, dan agenda kegiatan desa.
+                  Kabar aktual pengabdian masyarakat KKN, perkembangan teknologi, dan agenda kegiatan dusun.
                 </p>
               </div>
               <Link href="/berita" className="discover-link">
@@ -419,7 +419,7 @@ export default async function Home() {
                 <>
                   <article className="item-card">
                     <div className="card-img-wrap">
-                      <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi program teknologi desa" />
+                      <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi program teknologi dusun" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Teknologi</span>
@@ -427,8 +427,8 @@ export default async function Home() {
                         <span>01 Juli 2026</span>
                         <span>Admin KKN</span>
                       </div>
-                      <Link href="/berita" className="card-title-link">Digitalisasi Informasi Profil Desa</Link>
-                      <p className="card-excerpt">Website desa dikembangkan sebagai pusat informasi profil, kabar kegiatan, UMKM, dan galeri dokumentasi.</p>
+                      <Link href="/berita" className="card-title-link">Digitalisasi Informasi Profil Dusun</Link>
+                      <p className="card-excerpt">Website dusun dikembangkan sebagai pusat informasi profil, kabar kegiatan, UMKM, dan galeri dokumentasi.</p>
                       <Link href="/berita" className="card-link">Baca Selengkapnya</Link>
                     </div>
                   </article>
@@ -444,7 +444,7 @@ export default async function Home() {
                         <span>Divisi KKN</span>
                       </div>
                       <Link href="/berita" className="card-title-link">Pendataan Sanitasi Rumah Tangga</Link>
-                      <p className="card-excerpt">Data lapangan dikumpulkan untuk mendukung program edukasi sanitasi dan penyusunan informasi desa.</p>
+                      <p className="card-excerpt">Data lapangan dikumpulkan untuk mendukung program edukasi sanitasi dan penyusunan informasi dusun.</p>
                       <Link href="/berita" className="card-link">Baca Selengkapnya</Link>
                     </div>
                   </article>
@@ -457,10 +457,10 @@ export default async function Home() {
                       <span className="card-category">Pendidikan</span>
                       <div className="card-meta">
                         <span>05 Juli 2026</span>
-                        <span>Admin Desa</span>
+                        <span>Admin Dusun</span>
                       </div>
-                      <Link href="/berita" className="card-title-link">Edukasi Digital untuk Informasi Desa</Link>
-                      <p className="card-excerpt">Sosialisasi penggunaan website dilakukan agar warga dan perangkat desa dapat mengelola informasi utama.</p>
+                      <Link href="/berita" className="card-title-link">Edukasi Digital untuk Informasi Dusun</Link>
+                      <p className="card-excerpt">Sosialisasi penggunaan website dilakukan agar warga dan perangkat dusun dapat mengelola informasi utama.</p>
                       <Link href="/berita" className="card-link">Baca Selengkapnya</Link>
                     </div>
                   </article>
@@ -478,7 +478,7 @@ export default async function Home() {
                 <span className="section-tag">Katalog UMKM Unggulan</span>
                 <h2 className="section-title">Produk lokal yang layak ditampilkan.</h2>
                 <p className="section-desc">
-                  Mendukung peningkatan ekonomi kreatif mandiri melalui pemasaran produk unggulan warga desa.
+                  Mendukung peningkatan ekonomi kreatif mandiri melalui pemasaran produk unggulan warga dusun.
                 </p>
               </div>
               <Link href="/umkm" className="discover-link">
@@ -541,7 +541,7 @@ export default async function Home() {
                     <div className="card-body">
                       <span className="card-category">Kuliner</span>
                       <Link href="/umkm" className="card-title-link">Kopi Talun</Link>
-                      <p className="card-excerpt">Produk kopi dan minuman lokal yang dapat dipromosikan melalui katalog digital desa.</p>
+                      <p className="card-excerpt">Produk kopi dan minuman lokal yang dapat dipromosikan melalui katalog digital dusun.</p>
                       <Link href="/umkm" className="card-link">Detail Toko & Produk</Link>
                     </div>
                   </article>
@@ -578,15 +578,15 @@ export default async function Home() {
             <div>
               <div className="footer-brand">Karangtalun</div>
               <p>
-                Website informasi desa dan dokumentasi KKN untuk menampilkan profil wilayah,
-                kabar pengabdian, katalog UMKM, data desa, dan galeri visual secara tertata.
+                Website informasi dusun dan dokumentasi KKN untuk menampilkan profil wilayah,
+                kabar pengabdian, katalog UMKM, data dusun, dan galeri visual secara tertata.
               </p>
             </div>
 
             <div>
               <h4>Menu Utama</h4>
               <nav className="footer-links" aria-label="Menu utama footer">
-                <Link href="/profil">Profil Desa</Link>
+                <Link href="/profil">Profil Dusun</Link>
                 <Link href="/berita">Berita & Kegiatan</Link>
                 <Link href="/umkm">Potensi UMKM</Link>
                 <Link href="/galeri">Galeri Dokumentasi</Link>
@@ -596,16 +596,16 @@ export default async function Home() {
             <div>
               <h4>Direktori</h4>
               <nav className="footer-links" aria-label="Direktori footer">
-                <Link href="/sejarah">Sejarah Desa</Link>
-                <Link href="/visi-misi">Visi & Misi</Link>
-                <Link href="/struktur-desa">Struktur Pemerintahan</Link>
-                <Link href="/data-desa">Data & Statistik</Link>
+                <Link href="/sejarah">Sejarah Dusun</Link>
+                <Link href="/proker-kkn">Proker KKN</Link>
+                <Link href="/struktur-dusun">Struktur Pemerintahan</Link>
+                <Link href="/data-dusun">Data & Statistik</Link>
                 <Link href="/peta">Peta Wilayah</Link>
               </nav>
             </div>
 
             <div>
-              <h4>Kontak Desa</h4>
+              <h4>Kontak Dusun</h4>
               <div className="footer-links">
                 <span>Karangtalun, Ngluwar</span>
                 <span>Kabupaten Magelang, Jawa Tengah</span>
@@ -616,7 +616,7 @@ export default async function Home() {
           </div>
 
           <div className="footer-bottom">
-            <span>© 2026 Desa Karangtalun · KKN UPNYK.84.160</span>
+            <span>© 2026 Dusun Karangtalun · KKN UPNYK.84.160</span>
             <div className="footer-social" aria-label="Media sosial">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
               <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TT</a>

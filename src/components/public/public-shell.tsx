@@ -14,12 +14,12 @@ const navItems = [
 
 const footerSections = [
   {
-    title: "Profil Desa",
+    title: "Profil Dusun",
     links: [
       { href: "/profil", label: "Profil" },
       { href: "/sejarah", label: "Sejarah" },
-      { href: "/visi-misi", label: "Visi Misi" },
-      { href: "/struktur-desa", label: "Struktur Desa" },
+      { href: "/proker-kkn", label: "Proker KKN" },
+      { href: "/struktur-dusun", label: "Struktur Dusun" },
     ],
   },
   {
@@ -28,7 +28,7 @@ const footerSections = [
       { href: "/berita", label: "Berita" },
       { href: "/umkm", label: "UMKM" },
       { href: "/galeri", label: "Galeri" },
-      { href: "/data-desa", label: "Data Desa" },
+      { href: "/data-dusun", label: "Data Dusun" },
     ],
   },
   {
@@ -70,7 +70,7 @@ export function PublicShell({
               <div className="w-11 h-11 relative flex items-center justify-center">
                 <Image 
                   src="/images/karanz.png" 
-                  alt="Logo Desa Karangtalun" 
+                  alt="Logo Dusun Karangtalun" 
                   width={44} 
                   height={44} 
                   className="h-full w-full object-contain"
@@ -81,7 +81,7 @@ export function PublicShell({
                   Karangtalun<span className="text-daun font-serif italic font-normal">.</span>
                 </span>
                 <p className="text-[8px] sm:text-[9px] tracking-[0.18em] uppercase text-slate-400 font-bold">
-                  Profil Desa & KKN Mandiri UPN
+                  Profil Dusun & KKN Mandiri UPN
                 </p>
               </div>
             </Link>
@@ -142,7 +142,7 @@ export function PublicShell({
                   <div className="relative flex h-12 w-12 items-center justify-center">
                     <Image
                       src="/images/karanz.png"
-                      alt="Logo Desa Karangtalun"
+                      alt="Logo Dusun Karangtalun"
                       width={48}
                       height={48}
                       className="h-full w-full object-contain"
@@ -153,13 +153,13 @@ export function PublicShell({
                       Karangtalun<span className="text-pucuk">.</span>
                     </p>
                     <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                      Profil Desa & KKN Mandiri UPN
+                      Profil Dusun & KKN Mandiri UPN
                     </p>
                   </div>
                 </Link>
 
                 <p className="max-w-md text-sm leading-6 text-slate-400">
-                  Portal informasi Desa Karangtalun untuk berita, profil wilayah, katalog UMKM, galeri kegiatan, dan akses layanan publik sederhana.
+                  Portal informasi Dusun Karangtalun untuk berita, profil wilayah, katalog UMKM, galeri kegiatan, dan akses layanan publik sederhana.
                 </p>
 
                 <div className="space-y-3 text-xs text-slate-400">
@@ -202,7 +202,7 @@ export function PublicShell({
 
             <div className="border-t border-white/10 px-6 py-4 sm:px-8">
               <div className="mx-auto flex max-w-6xl flex-col gap-3 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-                <p>© 2026 Pemdes Karangtalun & KKN PPM UPN.</p>
+                <p>© 2026 Dusun Karangtalun & KKN PPM UPN.</p>
                 <div className="flex flex-wrap gap-3 font-semibold">
                   <Link href="/" className="hover:text-daun transition-colors">Beranda</Link>
                   <span className="text-slate-700">•</span>

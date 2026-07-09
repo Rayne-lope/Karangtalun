@@ -33,7 +33,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
             <span className="section-tag mb-4 inline-block">Galeri Lensa Pengabdian</span>
             <h1 className="section-title">Galeri Dokumentasi</h1>
             <p className="section-desc max-w-2xl mt-4">
-              Melihat lebih dekat potret lanskap alam, momen hangat interaksi warga, serta visual program kerja pengabdian mahasiswa KKN di Desa Karangtalun.
+              Melihat lebih dekat potret lanskap alam, momen hangat interaksi warga, serta visual program kerja pengabdian mahasiswa KKN di Dusun Karangtalun.
             </p>
           </div>
 
@@ -132,16 +132,16 @@ export default async function GalleryPage({ searchParams }: PageProps) {
             <div>
               <div className="footer-brand">Karangtalun</div>
               <p>
-                Website informasi desa dan dokumentasi KKN untuk menampilkan profil wilayah,
-                kabar pengabdian, katalog UMKM, data desa, dan galeri visual secara tertata.
+                Website informasi dusun dan dokumentasi KKN untuk menampilkan profil wilayah,
+                kabar pengabdian, katalog UMKM, data dusun, dan galeri visual secara tertata.
               </p>
             </div>
 
             <div>
               <h4>Menu Utama</h4>
               <nav className="footer-links" aria-label="Menu utama footer">
-                <Link href="/profil">Profil Desa</Link>
-                <Link href="/berita">Berita & Kegiatan</Link>
+                <Link href="/profil">Profil Dusun</Link>
+                <Link href="/berita">Berita &amp; Kegiatan</Link>
                 <Link href="/umkm">Potensi UMKM</Link>
                 <Link href="/galeri">Galeri Dokumentasi</Link>
               </nav>
@@ -150,16 +150,16 @@ export default async function GalleryPage({ searchParams }: PageProps) {
             <div>
               <h4>Direktori</h4>
               <nav className="footer-links" aria-label="Direktori footer">
-                <Link href="/sejarah">Sejarah Desa</Link>
-                <Link href="/visi-misi">Visi & Misi</Link>
-                <Link href="/struktur-desa">Struktur Pemerintahan</Link>
-                <Link href="/data-desa">Data & Statistik</Link>
+                <Link href="/sejarah">Sejarah Dusun</Link>
+                <Link href="/proker-kkn">Proker KKN</Link>
+                <Link href="/struktur-dusun">Struktur Pemerintahan</Link>
+                <Link href="/data-dusun">Data &amp; Statistik</Link>
                 <Link href="/peta">Peta Wilayah</Link>
               </nav>
             </div>
 
             <div>
-              <h4>Kontak Desa</h4>
+              <h4>Kontak Dusun</h4>
               <div className="footer-links">
                 <span>Karangtalun, Ngluwar</span>
                 <span>Kabupaten Magelang, Jawa Tengah</span>
@@ -170,7 +170,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
           </div>
 
           <div className="footer-bottom">
-            <span>© 2026 Desa Karangtalun · KKN UPNYK.84.160</span>
+            <span>© 2026 Dusun Karangtalun · KKN UPNYK.84.160</span>
             <div className="footer-social" aria-label="Media sosial">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
               <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TT</a>

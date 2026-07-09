@@ -29,7 +29,7 @@ export default function LoginPage() {
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 p-1.5 ring-1 ring-white/10">
             <Image
               src="/images/karanz.png"
-              alt="Logo Desa Karangtalun"
+              alt="Logo Dusun Karangtalun"
               width={40}
               height={40}
               className="h-full w-full object-contain"
@@ -65,7 +65,7 @@ export default function LoginPage() {
             className="font-light leading-tight text-white"
             style={{ fontFamily: serif, fontSize: "clamp(36px, 4vw, 52px)" }}
           >
-            Kelola konten desa dengan mudah.
+            Kelola konten dusun dengan mudah.
           </h1>
           <p className="mt-5 text-[15px] leading-relaxed text-white/55">
             Publikasikan berita, kelola UMKM lokal, dan unggah dokumentasi galeri
@@ -77,7 +77,7 @@ export default function LoginPage() {
         <div className="relative">
           <div className="mb-5 h-px bg-white/[0.08]" />
           <p className="text-[12px] text-white/35">
-            © 2026 Desa Karangtalun · KKN UPNYK.84.160
+            © 2026 Dusun Karangtalun · KKN UPNYK.84.160
           </p>
         </div>
       </div>
@@ -91,7 +91,7 @@ export default function LoginPage() {
         <div className="mb-8 flex items-center gap-3 lg:hidden">
           <Image
             src="/images/karanz.png"
-            alt="Logo Desa Karangtalun"
+            alt="Logo Dusun Karangtalun"
             width={32}
             height={32}
             className="object-contain"
@@ -112,7 +112,7 @@ export default function LoginPage() {
               className="inline-flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[2.5px] text-[#c59b4b] mb-3"
             >
               <span className="inline-block h-px w-6 bg-current opacity-50" />
-              Admin Desa
+              Admin Dusun
             </span>
             <h2
               className="font-light text-[#1c2b24]"

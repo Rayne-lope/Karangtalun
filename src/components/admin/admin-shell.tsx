@@ -93,7 +93,7 @@ export function AdminShell({ profile, children }: AdminShellProps) {
           <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white/10 p-1.5 ring-1 ring-white/10">
             <Image
               src="/images/karanz.png"
-              alt="Logo Desa Karangtalun"
+              alt="Logo Dusun Karangtalun"
               width={36}
               height={36}
               className="h-full w-full object-contain"

@@ -20,7 +20,7 @@ export default async function AdminGalleryPage({ searchParams }: PageProps) {
     <ProtectedAdmin>
       <PageHeading
         title="Manajemen Galeri"
-        description="Upload dan kelola dokumentasi foto kegiatan serta lanskap Desa Karangtalun."
+        description="Upload dan kelola dokumentasi foto kegiatan serta lanskap Dusun Karangtalun."
         actionHref="/admin/galeri/tambah"
         actionLabel="Upload Foto"
       />

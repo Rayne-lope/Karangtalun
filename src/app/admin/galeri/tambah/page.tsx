@@ -13,7 +13,7 @@ export default async function CreateGalleryPage({ searchParams }: PageProps) {
 
   return (
     <ProtectedAdmin>
-      <PageHeading title="Upload Galeri" description="Tambahkan foto dokumentasi kegiatan desa." />
+      <PageHeading title="Upload Galeri" description="Tambahkan foto dokumentasi kegiatan dusun." />
       <div className="mb-4">
         <ErrorMessage message={params?.error} />
       </div>

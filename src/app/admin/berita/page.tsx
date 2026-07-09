@@ -25,7 +25,7 @@ export default async function AdminNewsPage({ searchParams }: PageProps) {
     <ProtectedAdmin>
       <PageHeading
         title="Manajemen Berita"
-        description="Kelola berita dan aktivitas desa — termasuk draft, publikasi, dan arsip."
+        description="Kelola berita dan aktivitas dusun — termasuk draft, publikasi, dan arsip."
         actionHref="/admin/berita/tambah"
         actionLabel="Tambah Berita"
       />

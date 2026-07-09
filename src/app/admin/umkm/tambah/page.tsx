@@ -14,7 +14,7 @@ export default async function CreateUmkmPage({ searchParams }: PageProps) {
 
   return (
     <ProtectedAdmin>
-      <PageHeading title="Tambah UMKM" description="Daftarkan potensi usaha warga desa." />
+      <PageHeading title="Tambah UMKM" description="Daftarkan potensi usaha warga dusun." />
       <div className="mb-4">
         <ErrorMessage message={params?.error} />
       </div>

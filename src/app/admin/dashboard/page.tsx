@@ -7,7 +7,7 @@ const stats = [
   {
     key: "news",
     label: "Berita",
-    desc: "Artikel & aktivitas desa",
+    desc: "Artikel & aktivitas dusun",
     href: "/admin/berita",
     icon: Newspaper,
     color: "#073933",
@@ -53,11 +53,11 @@ export default async function DashboardPage() {
           className="font-light text-[#1c2b24]"
           style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 48px)", lineHeight: 1.05 }}
         >
-          Pantau data website desa.
+          Pantau data website dusun.
         </h2>
         <p className="mt-3 max-w-lg text-sm text-[#66746d]">
           Data konten yang dikelola melalui panel ini tampil secara langsung di halaman publik
-          desa setelah dipublikasikan.
+          dusun setelah dipublikasikan.
         </p>
       </div>
 

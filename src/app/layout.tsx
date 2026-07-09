@@ -28,8 +28,8 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Svara Karangtalun - Pesona Desa Wisata Mandiri",
-  description: "Website profil resmi Desa Karangtalun dengan berita, UMKM, dan galeri.",
+  title: "Svara Karangtalun - Pesona Dusun Wisata Mandiri",
+  description: "Website profil resmi Dusun Karangtalun dengan berita, UMKM, dan galeri.",
 };
 
 export default function RootLayout({

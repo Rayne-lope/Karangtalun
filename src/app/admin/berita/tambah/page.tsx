@@ -14,7 +14,7 @@ export default async function CreateNewsPage({ searchParams }: PageProps) {
 
   return (
     <ProtectedAdmin>
-      <PageHeading title="Tambah Berita" description="Tulis berita atau aktivitas terbaru desa." />
+      <PageHeading title="Tambah Berita" description="Tulis berita atau aktivitas terbaru dusun." />
       <div className="mb-4">
         <ErrorMessage message={params?.error} />
       </div>

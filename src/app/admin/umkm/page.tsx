@@ -19,7 +19,7 @@ export default async function AdminUmkmPage({ searchParams }: PageProps) {
     <ProtectedAdmin>
       <PageHeading
         title="Manajemen UMKM"
-        description="Kelola profil usaha lokal desa — kontak pemilik, status, kategori, dan foto produk."
+        description="Kelola profil usaha lokal dusun — kontak pemilik, status, kategori, dan foto produk."
         actionHref="/admin/umkm/tambah"
         actionLabel="Tambah UMKM"
       />

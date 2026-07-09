@@ -19,23 +19,23 @@ export default function KontakPage() {
     <StaticPageLayout>
       <StaticPageHeader
         eyebrow="Hubungi Kami"
-        title="Kontak Desa"
-        description="Informasi alamat, kontak, dan jam layanan kantor Desa Karangtalun yang dapat dihubungi oleh warga maupun pengunjung."
+        title="Kontak Dusun"
+        description="Informasi alamat, kontak, dan jam layanan kantor Dusun Karangtalun yang dapat dihubungi oleh warga maupun pengunjung."
       />
       <StaticPageContainer>
         <HighlightBlock>
-          Kami siap melayani Anda. Jangan ragu menghubungi kantor desa
+          Kami siap melayani Anda. Jangan ragu menghubungi kantor dusun
           untuk informasi, layanan administrasi, atau pertanyaan seputar
-          Desa Karangtalun.
+          Dusun Karangtalun.
         </HighlightBlock>
 
         <TwoColumnLayout
           main={
             <>
-              <InfoBlock title="Alamat Kantor Desa" seq="01">
-                <p>Kantor Desa Karangtalun</p>
+              <InfoBlock title="Alamat Kantor Dusun" seq="01">
+                <p>Kantor Dusun Karangtalun</p>
                 <p>
-                  Desa Karangtalun, Kecamatan Ngluwar,
+                  Dusun Karangtalun, Kecamatan Ngluwar,
                   <br />
                   Kabupaten Magelang, Jawa Tengah 56483
                 </p>
