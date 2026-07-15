@@ -1,0 +1,1 @@
+var json_KusencorPak_16 = {"type":"FeatureCollection","name":"KusencorPak_16","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Kusen Cor Pak Saryana","LATITUDE":-7.66607,"LANGITUDE":110.27221,"FOTO":"KUSEN COR.png"},"geometry":{"type":"Point","coordinates":[110.2722149,-7.666072523]}}]}

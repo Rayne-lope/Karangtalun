@@ -1,0 +1,1 @@
+var json_SUSMANAGARMINDO_20 = {"type":"FeatureCollection","name":"SUSMANAGARMINDO_20","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Susmana Garmindo","LATITUDE":-7.6651,"LANGITUDE":110.27212,"FOTO":"SUSMANA GARMINDO.png"},"geometry":{"type":"Point","coordinates":[110.2721164,-7.66510187]}}]}

@@ -1,0 +1,1 @@
+var json_PondopoKarangTalun_4 = {"type":"FeatureCollection","name":"PondopoKarangTalun_4","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Pendopo Karang Talun","LATITUDE":-7.66649,"LANGITUDE":110.27043},"geometry":{"type":"Point","coordinates":[110.2704261,-7.666490677]}}]}

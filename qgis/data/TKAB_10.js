@@ -1,0 +1,1 @@
+var json_TKAB_10 = {"type":"FeatureCollection","name":"TKAB_10","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"TK ABA Karangtalun","LATITUDE":-7.66578,"LANGITUDE":110.27095,"FOTO":"TK ABA.png"},"geometry":{"type":"Point","coordinates":[110.2709467,-7.665777219]}}]}

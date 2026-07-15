@@ -74,7 +74,10 @@ export default async function NewsPage({ searchParams }: PageProps) {
           {featuredNews && (
             <div className="mb-16">
               <span className="section-tag mb-5 inline-block">Artikel Utama</span>
-              <div className="group overflow-hidden rounded-[28px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_14px_40px_rgba(7,57,51,0.055)] transition-all duration-300 hover:shadow-[0_28px_70px_rgba(7,57,51,0.14)] hover:-translate-y-1.5 md:grid md:grid-cols-12 md:gap-0">
+              <Link
+                href={`/berita/${featuredNews.slug}`}
+                className="group overflow-hidden rounded-[28px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_14px_40px_rgba(7,57,51,0.055)] transition-all duration-300 hover:shadow-[0_28px_70px_rgba(7,57,51,0.14)] hover:-translate-y-1.5 md:grid md:grid-cols-12 md:gap-0 block cursor-pointer"
+              >
                 <div className="relative aspect-[16/10] overflow-hidden bg-[var(--paper-2)] md:col-span-7 md:aspect-auto md:min-h-[380px]">
                   {featuredNews.cover_image_url ? (
                     <Image
@@ -101,24 +104,22 @@ export default async function NewsPage({ searchParams }: PageProps) {
                       <span>•</span>
                       <span>Admin KKN</span>
                     </div>
-                    <Link
-                      href={`/berita/${featuredNews.slug}`}
-                      className="block mb-4 text-2xl font-medium leading-tight text-[var(--ink)] font-serif md:text-3xl hover:text-[var(--teal)] transition-colors"
+                    <span
+                      className="block mb-4 text-2xl font-medium leading-tight text-[var(--ink)] font-serif md:text-3xl group-hover:text-[var(--teal)] transition-colors"
                     >
                       {featuredNews.title}
-                    </Link>
+                    </span>
                     <p className="text-[var(--muted)] text-sm leading-relaxed mb-6 line-clamp-4 font-sans">
                       {featuredNews.excerpt}
                     </p>
                   </div>
-                  <Link
-                    href={`/berita/${featuredNews.slug}`}
-                    className="inline-flex items-center gap-2 text-[10px] font-extrabold tracking-[1.7px] uppercase text-[var(--ink)] border-b border-current pb-1 w-fit hover:text-[var(--teal)] transition-colors duration-200"
+                  <span
+                    className="inline-flex items-center gap-2 text-[10px] font-extrabold tracking-[1.7px] uppercase text-[var(--ink)] border-b border-current pb-1 w-fit group-hover:text-[var(--teal)] transition-colors duration-200"
                   >
                     Baca Selengkapnya
-                  </Link>
+                  </span>
                 </div>
-              </div>
+              </Link>
             </div>
           )}
 
@@ -126,7 +127,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
           {displayNews.length > 0 ? (
             <div className="news-grid">
               {displayNews.map((item) => (
-                <article key={item.id} className="item-card group">
+                <Link key={item.id} href={`/berita/${item.slug}`} className="item-card group block cursor-pointer">
                   <div className="card-img-wrap relative">
                     {item.cover_image_url ? (
                       <Image
@@ -150,15 +151,15 @@ export default async function NewsPage({ searchParams }: PageProps) {
                       <span>{formatDate(item.published_at)}</span>
                       <span>Admin KKN</span>
                     </div>
-                    <Link href={`/berita/${item.slug}`} className="card-title-link line-clamp-2">
+                    <span className="card-title-link line-clamp-2">
                       {item.title}
-                    </Link>
+                    </span>
                     <p className="card-excerpt line-clamp-3">{item.excerpt}</p>
-                    <Link href={`/berita/${item.slug}`} className="card-link">
+                    <span className="card-link">
                       Baca Selengkapnya
-                    </Link>
+                    </span>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           ) : null}

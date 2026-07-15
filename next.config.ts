@@ -50,8 +50,8 @@ const nextConfig: NextConfig = {
               supabaseHostname
                 ? `img-src 'self' data: blob: https://${supabaseHostname}`
                 : "img-src 'self' data: blob:",
-              // Frames: Google Maps embed only
-              "frame-src https://www.google.com",
+              // Frames: Google Maps embed and self for QGIS
+              "frame-src 'self' https://www.google.com",
               // Connections: Supabase API
               supabaseHostname
                 ? `connect-src 'self' https://${supabaseHostname} wss://${supabaseHostname}`

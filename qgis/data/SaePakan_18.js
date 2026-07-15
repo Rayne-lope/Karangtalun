@@ -1,0 +1,1 @@
+var json_SaePakan_18 = {"type":"FeatureCollection","name":"SaePakan_18","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"SAE Pakan PS Ngluwar ","LATITUDE":-7.66571,"LANGITUDE":110.27275,"FOTO":"SAE PAKAN.png"},"geometry":{"type":"Point","coordinates":[110.2727539,-7.665714496]}}]}

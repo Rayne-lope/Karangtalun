@@ -97,7 +97,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
               <span className="section-tag mb-8 block">Baca Artikel Lainnya</span>
               <div className="grid gap-6 sm:grid-cols-3">
                 {relatedArticles.map((item) => (
-                  <article key={item.id} className="item-card group">
+                  <Link key={item.id} href={`/berita/${item.slug}`} className="item-card group block cursor-pointer">
                     <div className="card-img-wrap relative !h-[150px]">
                       {item.cover_image_url ? (
                         <Image
@@ -120,14 +120,14 @@ export default async function NewsDetailPage({ params }: PageProps) {
                       <div className="card-meta !text-[9px] !mb-2">
                         <span>{formatDate(item.published_at)}</span>
                       </div>
-                      <Link href={`/berita/${item.slug}`} className="card-title-link !text-[18px] line-clamp-2 !mb-2">
+                      <span className="card-title-link !text-[18px] line-clamp-2 !mb-2">
                         {item.title}
-                      </Link>
-                      <Link href={`/berita/${item.slug}`} className="card-link !text-[9px]">
+                      </span>
+                      <span className="card-link !text-[9px]">
                         Baca Selengkapnya
-                      </Link>
+                      </span>
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
             </div>

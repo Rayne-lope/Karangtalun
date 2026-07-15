@@ -103,7 +103,7 @@ export default async function UmkmPage({ searchParams }: PageProps) {
           {filteredUmkm.length > 0 ? (
             <div className="umkm-grid">
               {filteredUmkm.map((item) => (
-                <article key={item.id} className="item-card group">
+                <Link key={item.id} href={`/umkm/${item.slug}`} className="item-card group block cursor-pointer">
                   <div className="card-img-wrap relative">
                     {item.image_url ? (
                       <Image
@@ -123,17 +123,17 @@ export default async function UmkmPage({ searchParams }: PageProps) {
                     <span className="card-category">
                       {item.umkm_categories?.name || "UMKM Dusun"}
                     </span>
-                    <Link href={`/umkm/${item.slug}`} className="card-title-link line-clamp-2">
+                    <span className="card-title-link line-clamp-2">
                       {item.name}
-                    </Link>
+                    </span>
                     <p className="card-excerpt line-clamp-3">
                       {item.description || item.product_description}
                     </p>
-                    <Link href={`/umkm/${item.slug}`} className="card-link">
+                    <span className="card-link">
                       Detail Toko & Produk
-                    </Link>
+                    </span>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           ) : null}

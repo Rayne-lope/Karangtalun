@@ -1,0 +1,1 @@
+var json_WarungBukSri_23 = {"type":"FeatureCollection","name":"WarungBukSri_23","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Warung Buk Sri","LATITUDE":-7.66604,"LANGITUDE":110.27114,"FOTO":"WARUNG BUK SRI.png"},"geometry":{"type":"Point","coordinates":[110.2711428,-7.666038579]}}]}

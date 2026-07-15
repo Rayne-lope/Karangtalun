@@ -682,6 +682,46 @@
   text-transform: uppercase;
 }
 
+.homepage-custom .profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.homepage-custom .stat-card {
+  padding: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  transition: all 0.2s ease;
+}
+
+.homepage-custom .stat-card:hover {
+  border-color: rgba(7, 57, 51, 0.15);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.02);
+}
+
+.homepage-custom .stat-number {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 32px);
+  color: var(--teal);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.homepage-custom .stat-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
 .homepage-custom .profile-right {
   padding: 34px;
   border: 1px solid var(--line);
@@ -832,7 +872,8 @@
   letter-spacing: -0.02em;
 }
 
-.homepage-custom .card-title-link:hover {
+.homepage-custom .card-title-link:hover,
+.homepage-custom .item-card:hover .card-title-link {
   color: var(--teal);
 }
 
@@ -851,14 +892,20 @@
   font-weight: 800;
   letter-spacing: 1.7px;
   text-transform: uppercase;
+  transition: color 220ms ease, border-color 220ms ease;
+}
+
+.homepage-custom .item-card:hover .card-link {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
 }
 
 /* Gallery */
 .homepage-custom .lensa {
   color: #fff;
   background:
-    linear-gradient(rgba(7, 57, 51, 0.70), rgba(7, 57, 51, 0.70)),
-    url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=82") center/cover no-repeat;
+    linear-gradient(rgba(7, 57, 51, 0.75), rgba(7, 57, 51, 0.75)),
+    url("/images/plant_background.png") center/cover no-repeat;
 }
 
 .homepage-custom .gallery-slider {

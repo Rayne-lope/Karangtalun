@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useState, useEffect } from "react";
 import { ImageInput } from "@/components/ui/image-input";
 import { ErrorMessage } from "@/components/ui/error-message";
 import { describedBy, FieldShell } from "@/components/ui/form-field";
@@ -43,6 +43,12 @@ export function NewsForm({ action, categories, news }: NewsFormProps) {
     return typeof stateValue === "string" ? stateValue : fallback;
   };
 
+  const [excerptText, setExcerptText] = useState(value("excerpt", news?.excerpt ?? ""));
+
+  useEffect(() => {
+    setExcerptText(value("excerpt", news?.excerpt ?? ""));
+  }, [state.values.excerpt]);
+
   const titleError = state.fieldErrors.title?.[0];
   const excerptError = state.fieldErrors.excerpt?.[0];
   const contentError = state.fieldErrors.content?.[0];
@@ -83,17 +89,28 @@ export function NewsForm({ action, categories, news }: NewsFormProps) {
         <FieldShell
           id="excerpt"
           label="Ringkasan"
-          help="Opsional. Maksimal 240 karakter."
+          help="Opsional. Maksimal 500 karakter."
+          helpRight={
+            <span
+              style={{
+                color: excerptText.length > 500 ? "#b91c1c" : "#8b968f",
+                fontWeight: excerptText.length > 500 ? "bold" : "normal",
+              }}
+            >
+              {excerptText.length}/500
+            </span>
+          }
           error={excerptError}
         >
           <textarea
             id="excerpt"
             name="excerpt"
-            defaultValue={value("excerpt", news?.excerpt ?? "")}
-            maxLength={240}
+            value={excerptText}
+            onChange={(e) => setExcerptText(e.target.value)}
+            maxLength={500}
             rows={3}
             aria-invalid={Boolean(excerptError)}
-            aria-describedby={describedBy("excerpt", "Opsional. Maksimal 240 karakter.", excerptError)}
+            aria-describedby={describedBy("excerpt", "Opsional. Maksimal 500 karakter.", excerptError)}
             className={textareaClass}
             style={{ borderColor }}
           />

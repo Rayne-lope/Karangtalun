@@ -1,0 +1,1 @@
+var json_WarungMbakSri_25 = {"type":"FeatureCollection","name":"WarungMbakSri_25","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Warung Mba Sri","LATITUDE":-7.66637,"LANGITUDE":110.27128,"FOTO":"WARUNG_MBAK_SRI.png"},"geometry":{"type":"Point","coordinates":[110.2712804,-7.666371042]}}]}

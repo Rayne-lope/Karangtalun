@@ -161,7 +161,7 @@ export default async function UmkmDetailPage({ params }: PageProps) {
               <span className="section-tag mb-8 block">UMKM Lainnya</span>
               <div className="grid gap-6 sm:grid-cols-3">
                 {relatedUmkm.map((u) => (
-                  <article key={u.id} className="item-card group">
+                  <Link key={u.id} href={`/umkm/${u.slug}`} className="item-card group block cursor-pointer">
                     <div className="card-img-wrap relative !h-[150px]">
                       {u.image_url ? (
                         <Image
@@ -181,14 +181,14 @@ export default async function UmkmDetailPage({ params }: PageProps) {
                       <span className="card-category !text-[9px] !mb-1">
                         {u.umkm_categories?.name || "UMKM Dusun"}
                       </span>
-                      <Link href={`/umkm/${u.slug}`} className="card-title-link !text-[18px] line-clamp-2 !mb-2">
+                      <span className="card-title-link !text-[18px] line-clamp-2 !mb-2">
                         {u.name}
-                      </Link>
-                      <Link href={`/umkm/${u.slug}`} className="card-link !text-[9px]">
+                      </span>
+                      <span className="card-link !text-[9px]">
                         Detail Toko & Produk
-                      </Link>
+                      </span>
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
             </div>

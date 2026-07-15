@@ -5,7 +5,7 @@ export const newsSchema = z.object({
     .string()
     .min(5, "Judul minimal 5 karakter.")
     .max(160, "Judul maksimal 160 karakter."),
-  excerpt: z.string().max(240, "Ringkasan maksimal 240 karakter.").nullable(),
+  excerpt: z.string().max(500, "Ringkasan maksimal 500 karakter.").nullable(),
   content: z.string().min(20, "Konten minimal 20 karakter."),
   category_id: z.string().uuid().nullable(),
   status: z.enum(["draft", "published", "archived"], {

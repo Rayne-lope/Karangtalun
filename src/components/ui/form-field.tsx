@@ -2,11 +2,12 @@ type FieldShellProps = {
   id: string;
   label: string;
   help?: string;
+  helpRight?: React.ReactNode;
   error?: string;
   children: React.ReactNode;
 };
 
-export function FieldShell({ id, label, help, error, children }: FieldShellProps) {
+export function FieldShell({ id, label, help, helpRight, error, children }: FieldShellProps) {
   return (
     <div className="space-y-2">
       <label
@@ -17,7 +18,16 @@ export function FieldShell({ id, label, help, error, children }: FieldShellProps
         {label}
       </label>
       {children}
-      <FieldHelp id={`${id}-help`} help={help} />
+      {(help || helpRight) && (
+        <div className="flex justify-between items-start gap-4">
+          <FieldHelp id={`${id}-help`} help={help} />
+          {helpRight && (
+            <div className="text-[12px] leading-5" style={{ color: "#8b968f" }}>
+              {helpRight}
+            </div>
+          )}
+        </div>
+      )}
       <FieldError id={`${id}-error`} error={error} />
     </div>
   );

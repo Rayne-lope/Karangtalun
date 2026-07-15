@@ -317,13 +317,29 @@ export default async function Home() {
                 <span className="section-tag">Kearifan Lokal & Demografi</span>
                 <h2>Menyelami potensi dusun yang tumbuh dari warga dan ruang hidupnya.</h2>
                 <p>
-                  Karangtalun ditampilkan sebagai dusun dengan potensi pertanian, kriya lokal,
-                  pengembangan sanitasi, dan kolaborasi program KKN. Bagian ini diisi
-                  dengan data demografi, potensi unggulan, serta ringkasan program kerja yang
-                  relevan dengan kebutuhan masyarakat.
+                  Dusun Karangtalun merupakan wilayah asri di Kecamatan Ngluwar yang dihuni oleh 389 jiwa (203 laki-laki dan 186 perempuan) yang terhimpun dalam 129 Kepala Keluarga (KK). Wilayah administrasi dusun ini terbagi menjadi 5 Rukun Tetangga (RT) di bawah kepemimpinan Kepala Dukuh Bapak Usman, dengan potensi unggulan di bidang pertanian dan industri kriya lokal.
                 </p>
 
-                <div className="tags">
+                <div className="profile-stats">
+                  <div className="stat-card">
+                    <span className="stat-number">389 Jiwa</span>
+                    <span className="stat-label">Total Penduduk</span>
+                  </div>
+                  <div className="stat-card">
+                    <span className="stat-number">129 KK</span>
+                    <span className="stat-label">Kepala Keluarga</span>
+                  </div>
+                  <div className="stat-card">
+                    <span className="stat-number">5 RT</span>
+                    <span className="stat-label">Rukun Tetangga</span>
+                  </div>
+                  <div className="stat-card">
+                    <span className="stat-number">Bapak Usman</span>
+                    <span className="stat-label">Kepala Dukuh</span>
+                  </div>
+                </div>
+
+                <div className="tags" style={{ marginTop: '24px' }}>
                   <span className="tag">Pertanian</span>
                   <span className="tag">Kriya</span>
                   <span className="tag">Sanitasi</span>
@@ -382,7 +398,7 @@ export default async function Home() {
             <div className="news-grid">
               {news && news.length > 0 ? (
                 news.map((item) => (
-                  <article key={item.id} className="item-card">
+                  <Link key={item.id} href={`/berita/${item.slug}`} className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       {item.cover_image_url ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -404,20 +420,20 @@ export default async function Home() {
                         <span>{formatDate(item.published_at)}</span>
                         <span>Admin KKN</span>
                       </div>
-                      <Link href={`/berita/${item.slug}`} className="card-title-link">
+                      <span className="card-title-link">
                         {item.title}
-                      </Link>
+                      </span>
                       <p className="card-excerpt line-clamp-3">{item.excerpt}</p>
-                      <Link href={`/berita/${item.slug}`} className="card-link">
+                      <span className="card-link">
                         Baca Selengkapnya
-                      </Link>
+                      </span>
                     </div>
-                  </article>
+                  </Link>
                 ))
               ) : (
                 // Fallbacks if empty
                 <>
-                  <article className="item-card">
+                  <Link href="/berita" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi program teknologi dusun" />
                     </div>
@@ -427,13 +443,13 @@ export default async function Home() {
                         <span>01 Juli 2026</span>
                         <span>Admin KKN</span>
                       </div>
-                      <Link href="/berita" className="card-title-link">Digitalisasi Informasi Profil Dusun</Link>
+                      <span className="card-title-link">Digitalisasi Informasi Profil Dusun</span>
                       <p className="card-excerpt">Website dusun dikembangkan sebagai pusat informasi profil, kabar kegiatan, UMKM, dan galeri dokumentasi.</p>
-                      <Link href="/berita" className="card-link">Baca Selengkapnya</Link>
+                      <span className="card-link">Baca Selengkapnya</span>
                     </div>
-                  </article>
+                  </Link>
 
-                  <article className="item-card">
+                  <Link href="/berita" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       <img src="https://images.unsplash.com/photo-1576085898323-218337e3343c?auto=format&fit=crop&w=800&q=80" alt="Kegiatan pendataan warga" />
                     </div>
@@ -443,13 +459,13 @@ export default async function Home() {
                         <span>03 Juli 2026</span>
                         <span>Divisi KKN</span>
                       </div>
-                      <Link href="/berita" className="card-title-link">Pendataan Sanitasi Rumah Tangga</Link>
+                      <span className="card-title-link">Pendataan Sanitasi Rumah Tangga</span>
                       <p className="card-excerpt">Data lapangan dikumpulkan untuk mendukung program edukasi sanitasi dan penyusunan informasi dusun.</p>
-                      <Link href="/berita" className="card-link">Baca Selengkapnya</Link>
+                      <span className="card-link">Baca Selengkapnya</span>
                     </div>
-                  </article>
+                  </Link>
 
-                  <article className="item-card">
+                  <Link href="/berita" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Kegiatan edukasi bersama masyarakat" />
                     </div>
@@ -459,11 +475,11 @@ export default async function Home() {
                         <span>05 Juli 2026</span>
                         <span>Admin Dusun</span>
                       </div>
-                      <Link href="/berita" className="card-title-link">Edukasi Digital untuk Informasi Dusun</Link>
+                      <span className="card-title-link">Edukasi Digital untuk Informasi Dusun</span>
                       <p className="card-excerpt">Sosialisasi penggunaan website dilakukan agar warga dan perangkat dusun dapat mengelola informasi utama.</p>
-                      <Link href="/berita" className="card-link">Baca Selengkapnya</Link>
+                      <span className="card-link">Baca Selengkapnya</span>
                     </div>
-                  </article>
+                  </Link>
                 </>
               )}
             </div>
@@ -489,7 +505,7 @@ export default async function Home() {
             <div className="umkm-grid">
               {umkm && umkm.length > 0 ? (
                 umkm.map((item) => (
-                  <article key={item.id} className="item-card">
+                  <Link key={item.id} href={`/umkm/${item.slug}`} className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       {item.image_url ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -507,56 +523,56 @@ export default async function Home() {
                       <span className="card-category">
                         {item.umkm_categories?.name || "Lokal"}
                       </span>
-                      <Link href={`/umkm/${item.slug}`} className="card-title-link">
+                      <span className="card-title-link">
                         {item.name}
-                      </Link>
+                      </span>
                       <p className="card-excerpt line-clamp-3">
                         {item.description || item.product_description}
                       </p>
-                      <Link href={`/umkm/${item.slug}`} className="card-link">
+                      <span className="card-link">
                         Detail Toko & Produk
-                      </Link>
+                      </span>
                     </div>
-                  </article>
+                  </Link>
                 ))
               ) : (
                 // Fallbacks if empty
                 <>
-                  <article className="item-card">
+                  <Link href="/umkm" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Produk kriya lokal" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Kriya</span>
-                      <Link href="/umkm" className="card-title-link">Anyaman Bambu Lestari</Link>
+                      <span className="card-title-link">Anyaman Bambu Lestari</span>
                       <p className="card-excerpt">Produk kerajinan tangan berbasis bahan alami untuk dekorasi dan kebutuhan rumah tangga.</p>
-                      <Link href="/umkm" className="card-link">Detail Toko & Produk</Link>
+                      <span className="card-link">Detail Toko & Produk</span>
                     </div>
-                  </article>
+                  </Link>
 
-                  <article className="item-card">
+                  <Link href="/umkm" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Produk kopi lokal" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Kuliner</span>
-                      <Link href="/umkm" className="card-title-link">Kopi Talun</Link>
+                      <span className="card-title-link">Kopi Talun</span>
                       <p className="card-excerpt">Produk kopi dan minuman lokal yang dapat dipromosikan melalui katalog digital dusun.</p>
-                      <Link href="/umkm" className="card-link">Detail Toko & Produk</Link>
+                      <span className="card-link">Detail Toko & Produk</span>
                     </div>
-                  </article>
+                  </Link>
 
-                  <article className="item-card">
+                  <Link href="/umkm" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80" alt="Produk kuliner lokal" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Kuliner</span>
-                      <Link href="/umkm" className="card-title-link">Olahan Singkong Warga</Link>
+                      <span className="card-title-link">Olahan Singkong Warga</span>
                       <p className="card-excerpt">Camilan dan produk olahan lokal yang dapat dikurasi sebagai potensi ekonomi warga.</p>
-                      <Link href="/umkm" className="card-link">Detail Toko & Produk</Link>
+                      <span className="card-link">Detail Toko & Produk</span>
                     </div>
-                  </article>
+                  </Link>
                 </>
               )}
             </div>

@@ -1,0 +1,1 @@
+var json_KiosKusumaIlyas_15 = {"type":"FeatureCollection","name":"KiosKusumaIlyas_15","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"Fasilitas":"Kios Kusuma Ilyas","Latitude":-7.66468,"langitude":110.27288,"foto":"KIOS KUSUMA ILYAS.png"},"geometry":{"type":"Point","coordinates":[110.272877,-7.664678344]}}]}
