@@ -48,6 +48,22 @@ export default async function Home() {
                 <Link href="/umkm">Potensi UMKM</Link>
                 <Link href="/galeri">Galeri Dokumenter</Link>
               </nav>
+
+              <details className="mobile-nav">
+                <summary aria-label="Buka navigasi utama">
+                  <span>Menu</span>
+                  <span className="mobile-nav-icon" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                  </span>
+                </summary>
+                <nav className="mobile-nav-links" aria-label="Navigasi utama mobile">
+                  <Link href="/profil">Profil Dusun</Link>
+                  <Link href="/umkm">Potensi UMKM</Link>
+                  <Link href="/galeri">Galeri Dokumenter</Link>
+                </nav>
+              </details>
             </header>
           </div>
 
@@ -62,8 +78,8 @@ export default async function Home() {
                 </p>
 
                 <div className="hero-actions">
-                  <Link href="/profil" className="pill-button">Profil Dusun</Link>
-                  <Link href="/galeri" className="pill-button">Galeri Dokumenter</Link>
+                  <Link href="/profil" className="pill-button hero-action-primary">Profil Dusun</Link>
+                  <Link href="/galeri" className="pill-button hero-action-secondary">Galeri Dokumenter</Link>
                 </div>
               </div>
             </div>

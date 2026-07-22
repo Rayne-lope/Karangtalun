@@ -24,9 +24,9 @@ export default function PetaPage() {
         description="Temukan lokasi Dusun Karangtalun di Kecamatan Ngluwar, Kabupaten Magelang, Jawa Tengah melalui peta interaktif."
       />
       <StaticPageContainer>
-        {/* Peta Utama — dominan dan penuh */}
-        <section className="overflow-hidden rounded-[28px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_14px_40px_rgba(7,57,51,0.04)] transition-all duration-300 hover:shadow-[0_22px_60px_rgba(7,57,51,0.09)]">
-          <div className="aspect-[16/8] bg-[var(--paper-2)] min-h-[450px]">
+        {/* Peta Utama — responsif di HP */}
+        <section className="overflow-hidden rounded-[22px] sm:rounded-[28px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_14px_40px_rgba(7,57,51,0.04)]">
+          <div className="h-[320px] sm:h-[480px] w-full bg-[var(--paper-2)]">
             <iframe
               title="Peta Dusun Karangtalun, Ngluwar, Magelang"
               src="/qgis/index.html"

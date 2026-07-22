@@ -27,24 +27,24 @@ export default async function GalleryPage({ searchParams }: PageProps) {
   return (
     <div className="homepage-custom">
       <PublicShell bgClassName="bg-[var(--cream)]" hideFooter={true}>
-        <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           {/* Header Section */}
-          <div className="mb-10 text-left">
-            <span className="section-tag mb-4 inline-block">Galeri Lensa Pengabdian</span>
+          <div className="mb-8 sm:mb-10 text-left">
+            <span className="section-tag mb-3 inline-block">Galeri Lensa Pengabdian</span>
             <h1 className="section-title">Galeri Dokumentasi</h1>
-            <p className="section-desc max-w-2xl mt-4">
+            <p className="section-desc max-w-2xl mt-3 text-xs sm:text-sm leading-relaxed text-[var(--muted)]">
               Melihat lebih dekat potret lanskap alam, momen hangat interaksi warga, serta visual program kerja pengabdian mahasiswa KKN di Dusun Karangtalun.
             </p>
           </div>
 
-          {/* Category Filter Navigation */}
-          <div className="flex flex-wrap items-center gap-3 mb-12 border-b border-[#1c2b24]/10 pb-6">
+          {/* Category Filter Navigation (horizontal scroll on mobile) */}
+          <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-4 pt-1 no-scrollbar sm:flex-wrap border-b border-[var(--line)]">
             <Link
               href="/galeri"
-              className={`inline-flex items-center justify-center min-h-[38px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 ${
+              className={`inline-flex shrink-0 items-center justify-center min-h-[36px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
                 !activeCategory
-                  ? "bg-[var(--teal)] !text-white shadow-[0_4px_12px_rgba(7,57,51,0.15)]"
-                  : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] hover:-translate-y-0.5 shadow-sm"
+                  ? "bg-[var(--teal)] !text-white shadow-sm"
+                  : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] shadow-sm"
               }`}
             >
               Semua Foto
@@ -55,10 +55,10 @@ export default async function GalleryPage({ searchParams }: PageProps) {
                 <Link
                   key={cat}
                   href={`/galeri?category=${encodeURIComponent(cat)}`}
-                  className={`inline-flex items-center justify-center min-h-[38px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 ${
+                  className={`inline-flex shrink-0 items-center justify-center min-h-[36px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
                     isActive
-                      ? "bg-[var(--teal)] !text-white shadow-[0_4px_12px_rgba(7,57,51,0.15)]"
-                      : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] hover:-translate-y-0.5 shadow-sm"
+                      ? "bg-[var(--teal)] !text-white shadow-sm"
+                      : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] shadow-sm"
                   }`}
                 >
                   {cat}
@@ -67,38 +67,35 @@ export default async function GalleryPage({ searchParams }: PageProps) {
             })}
           </div>
 
-          {/* Gallery Grid Section - Hover overlay design */}
+          {/* Gallery Grid Section - Touch & Mobile friendly design */}
           {filteredItems.length > 0 ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {filteredItems.map((item) => (
                 <article
                   key={item.id}
-                  className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-[var(--line)] bg-[var(--paper-2)] group shadow-[0_8px_30px_rgba(7,57,51,0.04)] hover:shadow-[0_20px_50px_rgba(7,57,51,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  className="relative aspect-[4/3] w-full overflow-hidden rounded-[22px] sm:rounded-[28px] border border-[var(--line)] bg-[var(--paper-2)] group shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
                   {/* Gallery Image */}
                   <Image
                     src={item.image_url}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
-                  {/* Gradient Overlay & Text (visible on hover) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(7,57,51,0.95)] via-[rgba(7,57,51,0.65)] to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    {/* Category kicker */}
-                    <span className="font-extrabold text-[9px] tracking-[1.5px] uppercase text-[var(--gold)] mb-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                  {/* Gradient Overlay & Text (Always readable on mobile, hover effect on desktop) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(7,57,51,0.92)] via-[rgba(7,57,51,0.55)] to-transparent flex flex-col justify-end p-5 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <span className="font-extrabold text-[9px] tracking-wider uppercase text-[var(--gold)] mb-1">
                       {item.category ?? "Galeri"}
                     </span>
                     
-                    {/* Title */}
-                    <h3 className="text-white font-serif text-lg font-medium leading-tight mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out delay-75">
+                    <h3 className="text-white font-serif text-base sm:text-lg font-medium leading-tight mb-1 line-clamp-2">
                       {item.title}
                     </h3>
                     
-                    {/* Description */}
                     {item.description ? (
-                      <p className="text-white/80 font-sans text-xs leading-relaxed line-clamp-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out delay-150">
+                      <p className="text-white/80 font-sans text-[11px] leading-relaxed line-clamp-2">
                         {item.description}
                       </p>
                     ) : null}

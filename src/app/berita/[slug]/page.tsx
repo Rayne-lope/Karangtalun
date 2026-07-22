@@ -1,141 +1,188 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import { PublicShell } from "@/components/public/public-shell";
 import { getPublishedNewsBySlug, getPublishedNews } from "@/lib/data";
 import { formatDate } from "@/lib/utils/format-date";
+import { NewsShareActions } from "./news-share-actions";
 import "../../homepage.css";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+const getArticle = cache(getPublishedNewsBySlug);
+
+function getArticleDescription(content: string, excerpt: string | null) {
+  const description = (excerpt ?? content).replace(/\s+/g, " ").trim();
+
+  if (description.length <= 170) {
+    return description;
+  }
+
+  return `${description.slice(0, 167).trimEnd()}…`;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const news = await getArticle(slug);
+
+  if (!news) {
+    return {};
+  }
+
+  const description = getArticleDescription(news.content, news.excerpt);
+  const images = news.cover_image_url ? [news.cover_image_url] : undefined;
+
+  return {
+    title: `${news.title} | Karangtalun`,
+    description,
+    authors: [{ name: "Admin KKN" }],
+    openGraph: {
+      type: "article",
+      locale: "id_ID",
+      title: news.title,
+      description,
+      publishedTime: news.published_at ?? undefined,
+      images,
+    },
+    twitter: {
+      card: news.cover_image_url ? "summary_large_image" : "summary",
+      title: news.title,
+      description,
+      images,
+    },
+  };
+}
+
 export default async function NewsDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  
-  // Fetch current news and recent news in parallel
   const [news, recentNews] = await Promise.all([
-    getPublishedNewsBySlug(slug),
-    getPublishedNews(4), // Fetch 4 items so that if we exclude the current one, we have up to 3
+    getArticle(slug),
+    getPublishedNews(4),
   ]);
 
   if (!news) {
     notFound();
   }
 
-  // Filter out current news from the related articles list
   const relatedArticles = recentNews
-    ? recentNews.filter((item) => item.slug !== slug).slice(0, 3)
-    : [];
+    .filter((item) => item.slug !== slug)
+    .slice(0, 3);
+  const articleDescription = getArticleDescription(news.content, news.excerpt);
 
   return (
     <div className="homepage-custom">
-      <PublicShell bgClassName="bg-[var(--cream)]" hideFooter={true}>
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          {/* Back Navigation */}
-          <div className="mb-8">
-            <Link
-              href="/berita"
-              className="group inline-flex items-center gap-2 text-[10px] font-extrabold tracking-[1.7px] uppercase text-[var(--ink)] hover:text-[var(--teal)] transition-colors duration-200"
-            >
-              <span className="transition-transform duration-200 group-hover:-translate-x-1 inline-block">←</span> Kembali ke Berita
-            </Link>
-          </div>
+      <PublicShell bgClassName="bg-[var(--cream)]" hideFooter={true} headerVariant="article">
+        <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 sm:pt-10 lg:px-8">
+          <article className="mx-auto max-w-3xl">
+            <header>
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.17em] text-[var(--teal)]">
+                {news.news_categories?.name ?? "Berita Dusun"}
+              </p>
 
-          {/* Article Wrapper */}
-          <article className="max-w-3xl mx-auto">
-            {/* Category */}
-            <span className="font-extrabold text-[10px] tracking-[1.7px] uppercase text-[var(--teal)] mb-3 block">
-              {news.news_categories?.name ?? "Berita Dusun"}
-            </span>
+              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-[var(--muted-2)]">
+                <time dateTime={news.published_at ?? undefined}>{formatDate(news.published_at)}</time>
+                <span aria-hidden="true">•</span>
+                <span>Ditulis oleh Admin KKN</span>
+              </div>
 
-            {/* Title */}
-            <h1 className="text-3xl font-medium leading-tight text-[var(--ink)] font-serif sm:text-4xl md:text-5xl">
-              {news.title}
-            </h1>
+              <h1 className="mt-5 font-serif text-[clamp(2.35rem,9vw,4.75rem)] font-medium leading-[0.96] tracking-[-0.04em] text-[var(--ink)]">
+                {news.title}
+              </h1>
 
-            {/* Meta */}
-            <div className="flex flex-wrap items-center gap-4 mt-5 mb-8 text-[11px] font-semibold text-[var(--muted-2)] border-b border-[#1c2b24]/10 pb-6">
-              <span>{formatDate(news.published_at)}</span>
-              <span>•</span>
-              <span>Ditulis oleh Admin KKN</span>
-            </div>
+              {news.excerpt ? (
+                <p className="mt-6 rounded-2xl border border-[var(--line)] bg-[var(--paper-2)] px-5 py-5 font-serif text-lg leading-8 text-[var(--ink)] sm:mt-7 sm:px-7 sm:py-6 sm:text-xl sm:leading-9">
+                  {news.excerpt}
+                </p>
+              ) : null}
 
-            {/* Cover Image */}
+              <NewsShareActions title={news.title} summary={articleDescription} />
+            </header>
+
             {news.cover_image_url ? (
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[28px] border border-[var(--line)] bg-[var(--paper-2)] shadow-md mb-10">
+              <figure className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-[24px] border border-[var(--line)] bg-[var(--paper-2)] shadow-[0_18px_48px_rgba(7,57,51,0.10)] sm:mt-10 sm:aspect-[16/10] sm:rounded-[28px]">
                 <Image
                   src={news.cover_image_url}
                   alt={news.title}
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 800px"
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 96px), 768px"
                   className="object-cover"
                 />
-              </div>
+              </figure>
             ) : null}
 
-            {/* Excerpt */}
-            {news.excerpt ? (
-              <p className="text-lg leading-relaxed text-[var(--ink)] font-serif italic border-l-2 border-[var(--teal)] pl-4 mb-8">
-                {news.excerpt}
-              </p>
-            ) : null}
-
-            {/* Content Body */}
-            <div className="whitespace-pre-line text-sm sm:text-base leading-relaxed sm:leading-8 text-[var(--ink)] font-sans space-y-6">
+            <div className="mx-auto mt-9 max-w-[42rem] whitespace-pre-line text-[17px] leading-8 text-[var(--ink)] sm:mt-12 sm:text-[18px] sm:leading-9">
               {news.content}
             </div>
           </article>
 
-          {/* Divider */}
-          <hr className="my-16 border-t border-[#1c2b24]/10" />
-
-          {/* Related Articles ("Baca Juga") Section */}
           {relatedArticles.length > 0 && (
-            <div className="max-w-3xl mx-auto">
-              <span className="section-tag mb-8 block">Baca Artikel Lainnya</span>
-              <div className="grid gap-6 sm:grid-cols-3">
+            <section className="mx-auto mt-16 max-w-3xl border-t border-[var(--line)] pt-10 sm:mt-24 sm:pt-14" aria-labelledby="related-news-title">
+              <div className="flex items-end justify-between gap-5">
+                <div>
+                  <p className="text-[10px] font-extrabold uppercase tracking-[0.17em] text-[var(--teal)]">Lanjutkan membaca</p>
+                  <h2 id="related-news-title" className="mt-3 font-serif text-3xl leading-none tracking-[-0.03em] text-[var(--ink)] sm:text-4xl">
+                    Artikel lainnya
+                  </h2>
+                </div>
+                <Link href="/berita" className="hidden text-[10px] font-extrabold uppercase tracking-[0.14em] text-[var(--teal)] underline underline-offset-4 sm:inline">
+                  Semua berita
+                </Link>
+              </div>
+
+              <div className="mt-7 grid gap-3 sm:grid-cols-3 sm:gap-5">
                 {relatedArticles.map((item) => (
-                  <Link key={item.id} href={`/berita/${item.slug}`} className="item-card group block cursor-pointer">
-                    <div className="card-img-wrap relative !h-[150px]">
+                  <Link
+                    key={item.id}
+                    href={`/berita/${item.slug}`}
+                    className="item-card group grid grid-cols-[88px_minmax(0,1fr)] gap-4 p-3 sm:block sm:p-0"
+                  >
+                    <div className="card-img-wrap relative !h-[88px] overflow-hidden rounded-xl sm:!h-[150px] sm:rounded-none">
                       {item.cover_image_url ? (
                         <Image
                           src={item.cover_image_url}
                           alt={item.title}
                           fill
-                          sizes="(max-width: 768px) 100vw, 250px"
+                          sizes="(max-width: 640px) 88px, 250px"
                           className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-[var(--paper-2)] text-[var(--muted-2)] text-xs font-mono">
-                          No Image
+                        <div className="flex h-full w-full items-center justify-center bg-[var(--paper-2)] px-3 text-center text-[10px] font-semibold text-[var(--muted-2)]">
+                          Tanpa gambar
                         </div>
                       )}
                     </div>
-                    <div className="card-body !p-5">
-                      <span className="card-category !text-[9px] !mb-1">
-                        {item.news_categories?.name || "Kabar KKN"}
-                      </span>
-                      <div className="card-meta !text-[9px] !mb-2">
-                        <span>{formatDate(item.published_at)}</span>
-                      </div>
-                      <span className="card-title-link !text-[18px] line-clamp-2 !mb-2">
+
+                    <div className="min-w-0 py-1 sm:p-5">
+                      <p className="text-[9px] font-extrabold uppercase tracking-[0.14em] text-[var(--teal)]">
+                        {item.news_categories?.name ?? "Kabar KKN"}
+                      </p>
+                      <p className="mt-1 text-[10px] font-semibold text-[var(--muted-2)]">
+                        {formatDate(item.published_at)}
+                      </p>
+                      <h3 className="mt-2 line-clamp-2 font-serif text-[20px] leading-[1.02] tracking-[-0.02em] text-[var(--ink)] sm:text-[22px]">
                         {item.title}
-                      </span>
-                      <span className="card-link !text-[9px]">
-                        Baca Selengkapnya
+                      </h3>
+                      <span className="mt-3 hidden text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--teal)] sm:inline-block">
+                        Baca selengkapnya →
                       </span>
                     </div>
                   </Link>
                 ))}
               </div>
-            </div>
+
+              <Link href="/berita" className="mt-7 inline-flex min-h-11 items-center text-[10px] font-extrabold uppercase tracking-[0.14em] text-[var(--teal)] underline underline-offset-4 sm:hidden">
+                Lihat semua berita
+              </Link>
+            </section>
           )}
         </div>
       </PublicShell>
 
-      {/* Landing Page Matched Footer */}
       <footer className="footer">
         <div className="container">
           <div className="footer-grid">
