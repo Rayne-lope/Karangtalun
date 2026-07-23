@@ -1152,6 +1152,10 @@
 }
 
 @media (max-width: 720px) {
+  .homepage-custom .container {
+    width: min(1180px, calc(100% - 40px));
+  }
+
   .homepage-custom .hero {
     min-height: 0;
     padding: 18px 0 26px;
@@ -1166,12 +1170,14 @@
 
   .homepage-custom .site-header {
     align-items: center;
+    gap: 12px;
   }
 
   .homepage-custom .header-brand {
+    min-width: 0;
     gap: 6px;
-    font-size: clamp(18px, 5vw, 22px);
-    letter-spacing: 1.8px;
+    font-size: clamp(16px, 4.1vw, 21px);
+    letter-spacing: 1.4px;
   }
 
   .homepage-custom .hero-nav {
@@ -1184,7 +1190,7 @@
   }
 
   .homepage-custom .mobile-nav summary {
-    min-width: 82px;
+    min-width: 76px;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
@@ -1278,8 +1284,9 @@
   }
 
   .homepage-custom .hero-title {
-    font-size: clamp(54px, 15.5vw, 74px);
-    line-height: 0.9;
+    max-width: 100%;
+    font-size: clamp(34px, 10.5vw, 62px);
+    line-height: 0.94;
   }
 
   .homepage-custom .hero-subtitle {
