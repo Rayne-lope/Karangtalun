@@ -110,7 +110,7 @@ export function PublicShell({
             {headerVariant === "article" ? (
               <Link
                 href="/berita"
-                className="inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 rounded-full border border-[var(--line)] bg-[var(--paper)] px-3 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--ink)] transition-colors hover:border-[var(--teal)] hover:text-[var(--teal)] sm:px-4"
+                className="inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full border border-[var(--line)] bg-[var(--paper)] px-3 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[var(--ink)] transition-colors hover:border-[var(--teal)] hover:text-[var(--teal)] sm:px-4"
               >
                 <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
                 <span className="sm:hidden">Berita</span>
@@ -141,7 +141,7 @@ export function PublicShell({
                       placeholder="Cari UMKM..."
                       className="h-9 w-full rounded-full border border-slate-200/80 bg-white/95 py-0 pl-4 pr-9 text-xs text-slate-700 placeholder:text-slate-400 shadow-sm transition-all duration-200 focus:border-emerald-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/10"
                     />
-                    <button type="submit" className="absolute inset-y-0 right-3 my-auto flex h-6 w-6 items-center justify-center text-slate-400 hover:text-emerald-700 transition-colors cursor-pointer">
+                    <button type="submit" aria-label="Cari UMKM" className="absolute inset-y-0 right-3 my-auto flex h-8 w-8 items-center justify-center text-slate-400 hover:text-emerald-700 transition-colors cursor-pointer">
                       <Search className="w-3.5 h-3.5" />
                     </button>
                   </form>
@@ -162,8 +162,10 @@ export function PublicShell({
                       setIsMobileSearchOpen(!isMobileSearchOpen);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all active:scale-95 cursor-pointer"
-                    aria-label="Cari"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all active:scale-95 cursor-pointer"
+                    aria-label={isMobileSearchOpen ? "Tutup pencarian" : "Buka pencarian"}
+                    aria-controls="mobile-search-panel"
+                    aria-expanded={isMobileSearchOpen}
                   >
                     <Search className="h-4 w-4" />
                   </button>
@@ -174,8 +176,10 @@ export function PublicShell({
                       setIsMobileMenuOpen(!isMobileMenuOpen);
                       setIsMobileSearchOpen(false);
                     }}
-                    className="flex min-h-10 items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 text-xs font-bold text-slate-700 shadow-sm transition-all active:scale-95 cursor-pointer"
-                    aria-label="Menu"
+                    className="flex min-h-11 items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 text-xs font-bold text-slate-700 shadow-sm transition-all active:scale-95 cursor-pointer"
+                    aria-label={isMobileMenuOpen ? "Tutup menu" : "Buka menu"}
+                    aria-controls="mobile-navigation-panel"
+                    aria-expanded={isMobileMenuOpen}
                   >
                     {isMobileMenuOpen ? <X className="h-4 w-4 text-emerald-700" /> : <Menu className="h-4 w-4" />}
                     <span className="text-[11px] uppercase tracking-wider font-extrabold">
@@ -189,7 +193,7 @@ export function PublicShell({
 
           {/* Mobile Search Overlay Bar */}
           {isMobileSearchOpen && (
-            <div className="mt-3 lg:hidden animate-fade-in">
+            <div id="mobile-search-panel" className="mt-3 lg:hidden animate-fade-in">
               <form onSubmit={handleSearchSubmit} className="relative flex h-11 w-full items-center">
                 <input
                   type="text"
@@ -199,9 +203,10 @@ export function PublicShell({
                   className="h-11 w-full rounded-2xl border border-emerald-600/40 bg-white py-0 pl-4 pr-12 text-base text-slate-800 placeholder:text-slate-400 shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
                   autoFocus
                 />
-                <button
-                  type="submit"
-                  className="absolute inset-y-0 right-2 my-auto flex h-8 w-8 items-center justify-center rounded-xl bg-[var(--teal)] text-white shadow-sm cursor-pointer"
+                  <button
+                    type="submit"
+                    aria-label="Jalankan pencarian UMKM"
+                    className="absolute inset-y-0 right-2 my-auto flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--teal)] text-white shadow-sm cursor-pointer"
                 >
                   <Search className="w-4 h-4" />
                 </button>
@@ -211,17 +216,17 @@ export function PublicShell({
 
           {/* Mobile Drawer Slide-down Navigation */}
           {isMobileMenuOpen && (
-            <div className="mt-3 overflow-hidden rounded-[24px] border border-slate-200 bg-white p-4 shadow-xl lg:hidden animate-fade-in">
+            <div id="mobile-navigation-panel" className="mt-3 overflow-hidden rounded-[24px] border border-slate-200 bg-white p-4 shadow-xl lg:hidden animate-fade-in">
               <div className="mb-3 border-b border-slate-100 pb-3">
-                <form onSubmit={handleSearchSubmit} className="relative flex h-10 w-full items-center">
+                <form onSubmit={handleSearchSubmit} className="relative flex h-11 w-full items-center">
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Cari UMKM atau info..."
-                    className="h-10 w-full rounded-full border border-slate-200 bg-slate-50 py-0 pl-4 pr-10 text-base text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none"
+                    className="h-11 w-full rounded-full border border-slate-200 bg-slate-50 py-0 pl-4 pr-12 text-base text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none"
                   />
-                  <button type="submit" className="absolute inset-y-0 right-3 my-auto text-slate-400">
+                  <button type="submit" aria-label="Jalankan pencarian UMKM" className="absolute inset-y-0 right-1 my-auto flex h-11 w-11 items-center justify-center text-slate-400">
                     <Search className="w-4 h-4" />
                   </button>
                 </form>

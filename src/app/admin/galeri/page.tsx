@@ -74,7 +74,7 @@ export default async function AdminGalleryPage({ searchParams }: PageProps) {
                 <div className="flex justify-end gap-2 pt-1 border-t" style={{ borderColor: "rgba(28,43,36,0.08)" }}>
                   <Link
                     href={`/admin/galeri/edit/${item.id}`}
-                    className="inline-flex min-h-[34px] items-center gap-1.5 rounded-full border px-3.5 text-[11px] font-extrabold uppercase tracking-[1.3px] transition-all duration-200 hover:-translate-y-0.5"
+                    className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full border px-3.5 text-[11px] font-extrabold uppercase tracking-[1.3px] transition-all duration-200 hover:-translate-y-0.5"
                     style={{
                       borderColor: "rgba(28,43,36,0.15)",
                       color: "#1c2b24",

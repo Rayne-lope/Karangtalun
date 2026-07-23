@@ -107,7 +107,7 @@ export function UmkmShareActions({ title, summary, ownerName }: UmkmShareActions
         <button
           type="button"
           onClick={handleShare}
-          className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full bg-[var(--teal)] px-5 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[var(--paper)] transition-all duration-200 hover:bg-[var(--teal-2)] hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] cursor-pointer"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[var(--teal)] px-5 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[var(--paper)] transition-all duration-200 hover:bg-[var(--teal-2)] hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] cursor-pointer"
         >
           <Share2 className="h-4 w-4" aria-hidden="true" />
           Bagikan
@@ -116,7 +116,7 @@ export function UmkmShareActions({ title, summary, ownerName }: UmkmShareActions
         <button
           type="button"
           onClick={handleWhatsApp}
-          className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 px-5 text-[11px] font-extrabold uppercase tracking-[0.11em] text-[#128C7E] transition-all duration-200 hover:bg-[#25D366]/20 hover:border-[#25D366] hover:shadow-sm active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] cursor-pointer"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 px-5 text-[11px] font-extrabold uppercase tracking-[0.11em] text-[#128C7E] transition-all duration-200 hover:bg-[#25D366]/20 hover:border-[#25D366] hover:shadow-sm active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] cursor-pointer"
         >
           <MessageCircle className="h-4 w-4 text-[#25D366]" aria-hidden="true" />
           WhatsApp
@@ -125,7 +125,7 @@ export function UmkmShareActions({ title, summary, ownerName }: UmkmShareActions
         <button
           type="button"
           onClick={handleCopy}
-          className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full border border-[var(--line)] bg-white px-5 text-[11px] font-extrabold uppercase tracking-[0.11em] text-[var(--ink)] transition-all duration-200 hover:border-[var(--teal)] hover:text-[var(--teal)] hover:shadow-sm active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] cursor-pointer"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[var(--line)] bg-white px-5 text-[11px] font-extrabold uppercase tracking-[0.11em] text-[var(--ink)] transition-all duration-200 hover:border-[var(--teal)] hover:text-[var(--teal)] hover:shadow-sm active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] cursor-pointer"
         >
           {copyState === "copied" ? (
             <Check className="h-4 w-4 text-emerald-600" aria-hidden="true" />

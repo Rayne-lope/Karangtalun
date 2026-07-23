@@ -5,6 +5,13 @@ import {
   StaticPageHeader,
   StaticPageLayout,
 } from "@/components/public/static-page";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Struktur Pemerintahan",
+  description: "Susunan kepemimpinan Kepala Dukuh, RW, dan RT di Dusun Karangtalun.",
+  path: "/struktur-dusun",
+});
 
 const rtList = [
   { rt: "RT 01", name: "Bapak Khoirul Anan" },

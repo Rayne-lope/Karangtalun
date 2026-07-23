@@ -6,6 +6,13 @@ import {
   StaticPageHeader,
   StaticPageLayout,
 } from "@/components/public/static-page";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Program Kerja KKN",
+  description: "Program kerja KKN PPM UPN Veteran Yogyakarta di Dusun Karangtalun.",
+  path: "/proker-kkn",
+});
 
 export default function ProkerKknPage() {
   return (

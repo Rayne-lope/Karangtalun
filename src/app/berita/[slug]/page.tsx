@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { PublicShell } from "@/components/public/public-shell";
 import { getPublishedNewsBySlug, getPublishedNews } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
 import { formatDate } from "@/lib/utils/format-date";
 import { NewsShareActions } from "./news-share-actions";
 import "../../homepage.css";
@@ -34,25 +35,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const description = getArticleDescription(news.content, news.excerpt);
-  const images = news.cover_image_url ? [news.cover_image_url] : undefined;
+  const pageMetadata = createPageMetadata({
+    title: news.title,
+    description,
+    path: `/berita/${slug}`,
+    image: news.cover_image_url,
+  });
 
   return {
-    title: `${news.title} | Karangtalun`,
-    description,
+    ...pageMetadata,
     authors: [{ name: "Admin KKN" }],
     openGraph: {
+      ...pageMetadata.openGraph,
       type: "article",
-      locale: "id_ID",
-      title: news.title,
-      description,
       publishedTime: news.published_at ?? undefined,
-      images,
-    },
-    twitter: {
-      card: news.cover_image_url ? "summary_large_image" : "summary",
-      title: news.title,
-      description,
-      images,
     },
   };
 }

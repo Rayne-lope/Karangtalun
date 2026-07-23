@@ -7,6 +7,13 @@ import {
   StaticPageLayout,
   TwoColumnLayout,
 } from "@/components/public/static-page";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Kontak Dusun",
+  description: "Hubungi Dusun Karangtalun untuk informasi layanan, kegiatan, dan kerja sama.",
+  path: "/kontak",
+});
 
 const operationalHours = [
   { label: "Senin – Kamis", value: "08.00 – 15.00 WIB" },

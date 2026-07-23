@@ -120,14 +120,14 @@ export function GallerySlider({ gallery }: GallerySliderProps) {
       <div className="flex items-center gap-4 mt-6">
         <button
           onClick={handlePrev}
-          className="w-10 h-10 rounded-full border border-slate-300 hover:border-daun bg-white text-slate-700 hover:text-daun hover:scale-105 active:scale-95 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm"
+          className="h-11 w-11 rounded-full border border-slate-300 hover:border-daun bg-white text-slate-700 hover:text-daun hover:scale-105 active:scale-95 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="w-10 h-10 rounded-full border border-slate-300 hover:border-daun bg-white text-slate-700 hover:text-daun hover:scale-105 active:scale-95 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm"
+          className="h-11 w-11 rounded-full border border-slate-300 hover:border-daun bg-white text-slate-700 hover:text-daun hover:scale-105 active:scale-95 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm"
           aria-label="Next image"
         >
           <ChevronRight className="w-5 h-5" />

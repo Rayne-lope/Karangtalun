@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
+import { siteUrl } from "@/lib/metadata";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -28,8 +29,20 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Svara Karangtalun - Pesona Dusun Wisata Mandiri",
-  description: "Website profil resmi Dusun Karangtalun dengan berita, UMKM, dan galeri.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Dusun Karangtalun",
+    template: "%s | Dusun Karangtalun",
+  },
+  description: "Website profil resmi Dusun Karangtalun untuk berita, UMKM, galeri, dan informasi wilayah.",
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: "Dusun Karangtalun",
+  },
+  twitter: {
+    card: "summary",
+  },
 };
 
 export default function RootLayout({

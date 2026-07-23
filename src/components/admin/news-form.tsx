@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useState, useEffect } from "react";
+import { useActionState, useState } from "react";
 import { ImageInput } from "@/components/ui/image-input";
 import { ErrorMessage } from "@/components/ui/error-message";
 import { describedBy, FieldShell } from "@/components/ui/form-field";
@@ -44,10 +44,6 @@ export function NewsForm({ action, categories, news }: NewsFormProps) {
   };
 
   const [excerptText, setExcerptText] = useState(value("excerpt", news?.excerpt ?? ""));
-
-  useEffect(() => {
-    setExcerptText(value("excerpt", news?.excerpt ?? ""));
-  }, [state.values.excerpt]);
 
   const titleError = state.fieldErrors.title?.[0];
   const excerptError = state.fieldErrors.excerpt?.[0];
@@ -202,7 +198,7 @@ export function NewsForm({ action, categories, news }: NewsFormProps) {
           <SubmitButton>{news ? "Simpan Perubahan" : "Terbitkan Data"}</SubmitButton>
           <Link
             href="/admin/berita"
-            className="inline-flex min-h-[42px] items-center justify-center rounded-full border px-5 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-full border px-5 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5"
             style={{
               borderColor,
               color: "#66746d",

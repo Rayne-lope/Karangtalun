@@ -2,12 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { PublicShell } from "@/components/public/public-shell";
 import { getPublishedNews, getNewsCategories } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
 import { formatDate } from "@/lib/utils/format-date";
 import "../homepage.css";
 
 type PageProps = {
   searchParams: Promise<{ category?: string }>;
 };
+
+export const metadata = createPageMetadata({
+  title: "Berita & Kegiatan",
+  description: "Kabar dusun, agenda warga, pembangunan wilayah, dan dokumentasi kegiatan KKN di Karangtalun.",
+  path: "/berita",
+});
 
 export default async function NewsPage({ searchParams }: PageProps) {
   const resolvedParams = await searchParams;
@@ -44,7 +51,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
           <div className="flex flex-wrap items-center gap-3 mb-12 border-b border-[#1c2b24]/10 pb-6">
             <Link
               href="/berita"
-              className={`inline-flex items-center justify-center min-h-[38px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 ${
+              className={`inline-flex items-center justify-center min-h-[44px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 ${
                 !activeCategorySlug
                   ? "bg-[var(--teal)] !text-white shadow-[0_4px_12px_rgba(7,57,51,0.15)]"
                   : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] hover:-translate-y-0.5 shadow-sm"
@@ -58,7 +65,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
                 <Link
                   key={cat.id}
                   href={`/berita?category=${cat.slug}`}
-                  className={`inline-flex items-center justify-center min-h-[38px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 ${
+                  className={`inline-flex items-center justify-center min-h-[44px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 ${
                     isActive
                       ? "bg-[var(--teal)] !text-white shadow-[0_4px_12px_rgba(7,57,51,0.15)]"
                       : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] hover:-translate-y-0.5 shadow-sm"
@@ -172,7 +179,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
               <p className="text-xs text-[var(--muted)] mt-1">Coba pilih kategori lain atau kembali ke semua kabar.</p>
               <Link
                 href="/berita"
-                className="mt-5 inline-flex items-center justify-center min-h-[38px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 bg-[var(--teal)] !text-white hover:bg-[var(--teal-2)] shadow-sm"
+                className="mt-5 inline-flex min-h-[44px] items-center justify-center px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 bg-[var(--teal)] !text-white hover:bg-[var(--teal-2)] shadow-sm"
               >
                 Kembali ke Semua Kabar
               </Link>

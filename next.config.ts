@@ -73,6 +73,11 @@ const nextConfig: NextConfig = {
   // ── Image optimization whitelist ────────────────────────────────────────
   images: {
     remotePatterns: [
+      {
+        protocol: "https" as const,
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
       // Only allow images from the configured Supabase project
       ...(supabaseHostname
         ? [

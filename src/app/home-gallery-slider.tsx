@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import type { GalleryItem } from "@/types/content";
@@ -82,10 +83,13 @@ export function HomeGallerySlider({ gallery }: HomeGallerySliderProps) {
         >
           {slides.map((slide) => (
             <figure key={slide.id} className="slide">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                src={slide.image_url} 
-                alt={slide.title} 
+              <Image
+                src={slide.image_url}
+                alt={slide.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover"
+                priority={slide.id === slides[0]?.id}
               />
               <figcaption className="slide-caption">
                 <span>{slide.category || "Dokumentasi"}</span>

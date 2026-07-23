@@ -6,6 +6,13 @@ import {
   StaticPageHeader,
   StaticPageLayout,
 } from "@/components/public/static-page";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Data & Statistik Dusun",
+  description: "Data kependudukan, distribusi RT, dan statistik administratif Dusun Karangtalun.",
+  path: "/data-dusun",
+});
 
 const stats = [
   {

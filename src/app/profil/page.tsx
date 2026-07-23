@@ -7,6 +7,13 @@ import {
   StaticPageLayout,
   TwoColumnLayout,
 } from "@/components/public/static-page";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Profil Dusun",
+  description: "Profil wilayah, masyarakat, dan potensi lokal Dusun Karangtalun di Kecamatan Ngluwar, Magelang.",
+  path: "/profil",
+});
 
 const facts = [
   { label: "Nama Dusun", value: "Dusun Karangtalun" },

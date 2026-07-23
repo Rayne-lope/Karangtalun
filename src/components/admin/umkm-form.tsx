@@ -237,7 +237,7 @@ export function UmkmForm({ action, categories, umkm }: UmkmFormProps) {
           <SubmitButton>{umkm ? "Simpan Perubahan" : "Simpan UMKM"}</SubmitButton>
           <Link
             href="/admin/umkm"
-            className="inline-flex min-h-[42px] items-center justify-center rounded-full border px-5 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-full border px-5 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5"
             style={{ borderColor, color: "#66746d", background: "#f6f2e8" }}
           >
             Batal

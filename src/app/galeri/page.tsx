@@ -2,11 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { PublicShell } from "@/components/public/public-shell";
 import { getPublishedGallery } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
 import "../homepage.css";
 
 type PageProps = {
   searchParams: Promise<{ category?: string }>;
 };
+
+export const metadata = createPageMetadata({
+  title: "Galeri Dokumentasi",
+  description: "Potret kegiatan KKN, lanskap dusun, dan interaksi warga Karangtalun dalam satu galeri dokumentasi.",
+  path: "/galeri",
+});
 
 export default async function GalleryPage({ searchParams }: PageProps) {
   const resolvedParams = await searchParams;
@@ -32,7 +39,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
           <div className="mb-8 sm:mb-10 text-left">
             <span className="section-tag mb-3 inline-block">Galeri Lensa Pengabdian</span>
             <h1 className="section-title">Galeri Dokumentasi</h1>
-            <p className="section-desc max-w-2xl mt-3 text-xs sm:text-sm leading-relaxed text-[var(--muted)]">
+            <p className="section-desc max-w-2xl mt-3 text-sm sm:text-base leading-relaxed text-[var(--muted)]">
               Melihat lebih dekat potret lanskap alam, momen hangat interaksi warga, serta visual program kerja pengabdian mahasiswa KKN di Dusun Karangtalun.
             </p>
           </div>
@@ -41,7 +48,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
           <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-4 pt-1 no-scrollbar sm:flex-wrap border-b border-[var(--line)]">
             <Link
               href="/galeri"
-              className={`inline-flex shrink-0 items-center justify-center min-h-[36px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
+              className={`inline-flex shrink-0 items-center justify-center min-h-[44px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
                 !activeCategory
                   ? "bg-[var(--teal)] !text-white shadow-sm"
                   : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] shadow-sm"
@@ -55,7 +62,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
                 <Link
                   key={cat}
                   href={`/galeri?category=${encodeURIComponent(cat)}`}
-                  className={`inline-flex shrink-0 items-center justify-center min-h-[36px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
+                  className={`inline-flex shrink-0 items-center justify-center min-h-[44px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
                     isActive
                       ? "bg-[var(--teal)] !text-white shadow-sm"
                       : "bg-[var(--paper)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] shadow-sm"
@@ -113,7 +120,7 @@ export default async function GalleryPage({ searchParams }: PageProps) {
               <p className="text-xs text-[var(--muted)] mt-1">Coba bersihkan filter kategori Anda.</p>
               <Link
                 href="/galeri"
-                className="mt-5 inline-flex items-center justify-center min-h-[38px] px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 bg-[var(--teal)] !text-white hover:bg-[var(--teal-2)] shadow-sm"
+                className="mt-5 inline-flex min-h-[44px] items-center justify-center px-5 rounded-full text-[10px] font-extrabold tracking-[1.5px] uppercase transition-all duration-200 bg-[var(--teal)] !text-white hover:bg-[var(--teal-2)] shadow-sm"
               >
                 Kembali ke Semua Foto
               </Link>

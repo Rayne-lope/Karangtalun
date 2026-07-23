@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -12,17 +13,26 @@ import {
   Map, 
   Phone 
 } from "lucide-react";
-import { getActiveUmkm, getPublishedGallery, getPublishedNews, getDashboardCounts } from "@/lib/data";
+import { getActiveUmkm, getPublishedGallery, getPublishedNews } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
 import { formatDate } from "@/lib/utils/format-date";
 import { HomeGallerySlider } from "./home-gallery-slider";
 import "./homepage.css";
 
+export const metadata: Metadata = {
+  ...createPageMetadata({
+    title: "Dusun Karangtalun",
+    description: "Portal resmi Dusun Karangtalun untuk berita, profil wilayah, UMKM, galeri, dan informasi KKN.",
+    path: "/",
+  }),
+  title: { absolute: "Dusun Karangtalun" },
+};
+
 export default async function Home() {
-  const [news, umkm, gallery, counts] = await Promise.all([
+  const [news, umkm, gallery] = await Promise.all([
     getPublishedNews(3),
     getActiveUmkm(3),
     getPublishedGallery(6),
-    getDashboardCounts(),
   ]);
 
   return (
@@ -417,10 +427,12 @@ export default async function Home() {
                   <Link key={item.id} href={`/berita/${item.slug}`} className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       {item.cover_image_url ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img 
-                          src={item.cover_image_url} 
-                          alt={item.title} 
+                        <Image
+                          src={item.cover_image_url}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400 text-xs font-mono">
@@ -451,7 +463,7 @@ export default async function Home() {
                 <>
                   <Link href="/berita" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
-                      <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi program teknologi dusun" />
+                      <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi program teknologi dusun" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Teknologi</span>
@@ -467,7 +479,7 @@ export default async function Home() {
 
                   <Link href="/berita" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
-                      <img src="https://images.unsplash.com/photo-1576085898323-218337e3343c?auto=format&fit=crop&w=800&q=80" alt="Kegiatan pendataan warga" />
+                      <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" src="https://images.unsplash.com/photo-1576085898323-218337e3343c?auto=format&fit=crop&w=800&q=80" alt="Kegiatan pendataan warga" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Kesehatan</span>
@@ -483,7 +495,7 @@ export default async function Home() {
 
                   <Link href="/berita" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
-                      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Kegiatan edukasi bersama masyarakat" />
+                      <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Kegiatan edukasi bersama masyarakat" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Pendidikan</span>
@@ -524,10 +536,12 @@ export default async function Home() {
                   <Link key={item.id} href={`/umkm/${item.slug}`} className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
                       {item.image_url ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img 
-                          src={item.image_url} 
-                          alt={item.name} 
+                        <Image
+                          src={item.image_url}
+                          alt={item.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400 text-xs font-mono">
@@ -556,7 +570,7 @@ export default async function Home() {
                 <>
                   <Link href="/umkm" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
-                      <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Produk kriya lokal" />
+                      <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Produk kriya lokal" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Kriya</span>
@@ -568,7 +582,7 @@ export default async function Home() {
 
                   <Link href="/umkm" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
-                      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Produk kopi lokal" />
+                      <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Produk kopi lokal" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Kuliner</span>
@@ -580,7 +594,7 @@ export default async function Home() {
 
                   <Link href="/umkm" className="item-card block cursor-pointer">
                     <div className="card-img-wrap">
-                      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80" alt="Produk kuliner lokal" />
+                      <Image fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80" alt="Produk kuliner lokal" />
                     </div>
                     <div className="card-body">
                       <span className="card-category">Kuliner</span>

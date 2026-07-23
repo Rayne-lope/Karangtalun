@@ -24,7 +24,7 @@ export function SubmitButton({
       disabled={pending}
       className={
         className ??
-        "inline-flex min-h-[42px] items-center justify-center rounded-full px-6 text-[11px] font-extrabold uppercase tracking-[1.7px] text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+        "inline-flex min-h-[44px] items-center justify-center rounded-full px-6 text-[11px] font-extrabold uppercase tracking-[1.7px] text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
       }
       style={style ?? (className ? undefined : { background: "#062b27" })}
     >

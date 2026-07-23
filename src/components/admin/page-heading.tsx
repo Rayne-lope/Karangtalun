@@ -26,7 +26,7 @@ export function PageHeading({ title, description, actionHref, actionLabel }: Pag
       {actionHref && actionLabel ? (
         <Link
           href={actionHref}
-          className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full px-5 text-[11px] font-extrabold uppercase tracking-[1.7px] text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 hover:shadow-md"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-[11px] font-extrabold uppercase tracking-[1.7px] text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 hover:shadow-md"
           style={{ background: "#062b27" }}
         >
           <Plus className="h-3.5 w-3.5" aria-hidden="true" />

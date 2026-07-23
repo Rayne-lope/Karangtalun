@@ -71,7 +71,7 @@ export default async function AdminUmkmPage({ searchParams }: PageProps) {
                     <div className="flex justify-end gap-2">
                       <Link
                         href={`/admin/umkm/edit/${item.id}`}
-                        className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full border px-3.5 text-[11px] font-extrabold uppercase tracking-[1.3px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
+                        className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full border px-3.5 text-[11px] font-extrabold uppercase tracking-[1.3px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
                         style={{
                           borderColor: "rgba(28,43,36,0.15)",
                           color: "#1c2b24",

@@ -2,12 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { PublicShell } from "@/components/public/public-shell";
 import { getActiveUmkm, getUmkmCategories } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
 import { Search, MapPin, User, MessageCircle, ArrowRight, Store, Tag } from "lucide-react";
 import "../homepage.css";
 
 type PageProps = {
   searchParams: Promise<{ category?: string; search?: string }>;
 };
+
+export const metadata = createPageMetadata({
+  title: "Direktori UMKM",
+  description: "Temukan produk kriya, kuliner, kopi, dan usaha lokal warga Dusun Karangtalun.",
+  path: "/umkm",
+});
 
 export default async function UmkmPage({ searchParams }: PageProps) {
   const resolvedParams = await searchParams;
@@ -115,7 +122,7 @@ export default async function UmkmPage({ searchParams }: PageProps) {
               </span>
               <Link
                 href={searchQuery ? `/umkm?search=${encodeURIComponent(searchQuery)}` : "/umkm"}
-                className={`inline-flex items-center gap-1.5 min-h-[36px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
+                className={`inline-flex items-center gap-1.5 min-h-[44px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
                   !activeCategorySlug
                     ? "bg-[var(--teal)] text-white shadow-sm"
                     : "bg-[var(--paper-2)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] hover:bg-white"
@@ -138,7 +145,7 @@ export default async function UmkmPage({ searchParams }: PageProps) {
                   <Link
                     key={cat.id}
                     href={href}
-                    className={`inline-flex items-center gap-1.5 min-h-[36px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
+                    className={`inline-flex items-center gap-1.5 min-h-[44px] px-4 rounded-full text-[10px] font-extrabold tracking-wider uppercase transition-all duration-200 ${
                       isActive
                         ? "bg-[var(--teal)] text-white shadow-sm"
                         : "bg-[var(--paper-2)] text-[var(--ink)] border border-[var(--line)] hover:border-[var(--teal)] hover:bg-white"
@@ -250,8 +257,8 @@ export default async function UmkmPage({ searchParams }: PageProps) {
                           href={whatsappHref}
                           target="_blank"
                           rel="noreferrer"
-                          title="Hubungi WhatsApp"
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[#128C7E] transition-all hover:bg-[#25D366] hover:text-white hover:shadow-sm"
+                          aria-label={`Hubungi ${item.name} melalui WhatsApp`}
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[#128C7E] transition-all hover:bg-[#25D366] hover:text-white hover:shadow-sm"
                         >
                           <MessageCircle className="h-4 w-4" />
                         </a>
@@ -273,7 +280,7 @@ export default async function UmkmPage({ searchParams }: PageProps) {
               </p>
               <Link
                 href="/umkm"
-                className="mt-6 inline-flex min-h-[42px] items-center justify-center rounded-full bg-[var(--teal)] px-6 text-[10px] font-extrabold uppercase tracking-widest text-white transition-colors hover:bg-[var(--teal-2)]"
+                className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-full bg-[var(--teal)] px-6 text-[10px] font-extrabold uppercase tracking-widest text-white transition-colors hover:bg-[var(--teal-2)]"
               >
                 Tampilkan Semua UMKM
               </Link>

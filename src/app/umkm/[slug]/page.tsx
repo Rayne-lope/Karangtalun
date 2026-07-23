@@ -1,9 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import { PublicShell } from "@/components/public/public-shell";
 import { UmkmShareActions } from "@/components/public/umkm-share-actions";
 import { getActiveUmkmBySlug, getActiveUmkm } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
 import {
   ArrowLeft,
   MapPin,
@@ -39,12 +42,40 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+const getUmkm = cache(getActiveUmkmBySlug);
+
+function getUmkmDescription(item: { description: string | null; product_description: string | null }) {
+  const description = (item.description ?? item.product_description ?? "Usaha lokal warga Dusun Karangtalun.")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return description.length > 170
+    ? `${description.slice(0, 167).trimEnd()}…`
+    : description;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const item = await getUmkm(slug);
+
+  if (!item) {
+    return {};
+  }
+
+  return createPageMetadata({
+    title: item.name,
+    description: getUmkmDescription(item),
+    path: `/umkm/${slug}`,
+    image: item.image_url,
+  });
+}
+
 export default async function UmkmDetailPage({ params }: PageProps) {
   const { slug } = await params;
 
   // Fetch current UMKM and all active UMKMs in parallel
   const [item, allUmkm] = await Promise.all([
-    getActiveUmkmBySlug(slug),
+    getUmkm(slug),
     getActiveUmkm(),
   ]);
 

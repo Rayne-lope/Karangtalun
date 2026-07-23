@@ -147,7 +147,8 @@ export function AdminShell({ profile, children }: AdminShellProps) {
             <button
               type="submit"
               title="Logout"
-              className="flex h-7 w-7 items-center justify-center rounded-lg text-white/30 transition hover:bg-white/10 hover:text-white/70"
+              className="flex h-11 w-11 items-center justify-center rounded-lg text-white/30 transition hover:bg-white/10 hover:text-white/70"
+              aria-label="Keluar dari admin"
             >
               <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
             </button>
@@ -188,7 +189,7 @@ export function AdminShell({ profile, children }: AdminShellProps) {
             <div className="flex items-center gap-2">
               <Link
                 href="/"
-                className="inline-flex min-h-[38px] items-center justify-center gap-2 rounded-full border px-4 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border px-4 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
                 style={{
                   borderColor: "var(--adm-line)",
                   color: "var(--adm-ink)",
@@ -201,7 +202,7 @@ export function AdminShell({ profile, children }: AdminShellProps) {
               <form action={logoutAction}>
                 <button
                   type="submit"
-                  className="inline-flex min-h-[38px] items-center justify-center gap-2 rounded-full px-4 text-[11px] font-extrabold uppercase tracking-[1.5px] text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
+                  className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-4 text-[11px] font-extrabold uppercase tracking-[1.5px] text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
                   style={{ background: "var(--adm-sidebar)" }}
                 >
                   <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
@@ -220,7 +221,7 @@ export function AdminShell({ profile, children }: AdminShellProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="inline-flex min-h-[34px] shrink-0 items-center rounded-full border px-4 text-[11px] font-extrabold uppercase tracking-[1.3px] transition"
+                className="inline-flex min-h-[44px] shrink-0 items-center rounded-full border px-4 text-[11px] font-extrabold uppercase tracking-[1.3px] transition"
                 style={{
                   borderColor: "var(--adm-line)",
                   color: "var(--adm-ink)",

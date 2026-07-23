@@ -139,7 +139,7 @@ export default async function DashboardPage() {
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex min-h-[38px] items-center rounded-full border px-5 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
+              className="inline-flex min-h-[44px] items-center rounded-full border px-5 text-[11px] font-extrabold uppercase tracking-[1.5px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
               style={{
                 borderColor: "rgba(28,43,36,0.12)",
                 color: "#1c2b24",

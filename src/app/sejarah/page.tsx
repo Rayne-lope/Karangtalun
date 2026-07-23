@@ -6,6 +6,13 @@ import {
   StaticPageHeader,
   StaticPageLayout,
 } from "@/components/public/static-page";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Sejarah Dusun",
+  description: "Catatan asal-usul, jejak kepemimpinan, dan warisan budaya Dusun Karangtalun.",
+  path: "/sejarah",
+});
 
 const leaders = [
   {

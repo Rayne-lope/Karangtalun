@@ -120,7 +120,7 @@ export function StaticPageHeader({
         <h1 className="text-3xl font-serif font-normal text-[var(--ink)] sm:text-4xl md:text-5xl leading-tight">
           {title}
         </h1>
-        <p className="section-desc mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-[var(--muted)]">
+        <p className="section-desc mt-3 max-w-2xl text-sm sm:text-base leading-relaxed text-[var(--muted)]">
           {description}
         </p>
       </div>
@@ -151,7 +151,7 @@ export function InfoBlock({ title, seq, children }: InfoBlockProps) {
       <h2 className="text-xl sm:text-2xl font-serif font-medium text-[var(--ink)] mb-3 sm:mb-4">
         {title}
       </h2>
-      <div className="space-y-3.5 text-xs sm:text-sm leading-relaxed text-[var(--muted)] font-sans">
+      <div className="space-y-3.5 text-[15px] leading-7 text-[var(--muted)] font-sans sm:text-base sm:leading-7">
         {children}
       </div>
     </section>
@@ -210,7 +210,7 @@ export function BigStatGrid({ stats }: { stats: SimpleStat[] }) {
             {stat.value}
           </p>
           {stat.description ? (
-            <p className="mt-3 text-xs leading-relaxed text-[var(--muted)]">
+            <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
               {stat.description}
             </p>
           ) : null}
@@ -237,7 +237,7 @@ export function SimpleStatGrid({ stats }: { stats: SimpleStat[] }) {
             {stat.value}
           </p>
           {stat.description ? (
-            <p className="mt-2 text-[11px] sm:text-xs leading-relaxed text-[var(--muted)] line-clamp-2">
+            <p className="mt-2 text-sm leading-relaxed text-[var(--muted)] line-clamp-2">
               {stat.description}
             </p>
           ) : null}
@@ -257,7 +257,7 @@ export function SimpleList({ items }: { items: string[] }) {
           <span className="text-[var(--gold)] text-base leading-none mt-0.5 shrink-0">
             ◇
           </span>
-          <span className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+          <span className="text-sm sm:text-base text-[var(--muted)] leading-relaxed">
             {item}
           </span>
         </li>
@@ -305,7 +305,7 @@ export function SidebarInfoCard({
             <dt className="text-[10px] sm:text-[11px] font-bold text-[var(--muted-2)]">
               {label}
             </dt>
-            <dd className="text-xs sm:text-sm font-medium text-[var(--ink)]">{value}</dd>
+            <dd className="text-sm sm:text-base font-medium text-[var(--ink)]">{value}</dd>
           </div>
         ))}
       </dl>
