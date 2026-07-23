@@ -139,9 +139,10 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
   }, [clearSelection]);
 
   useEffect(() => {
-    if (!mapElementRef.current || mapRef.current) return;
+    const mapElement = mapElementRef.current;
+    if (!mapElement || mapRef.current) return;
 
-    const map = L.map(mapElementRef.current, {
+    const map = L.map(mapElement, {
       attributionControl: true,
       zoomControl: false,
       scrollWheelZoom: true,
@@ -204,7 +205,13 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
     boundaryBoundsRef.current = bounds;
     markerLayerRef.current = L.layerGroup().addTo(map);
 
+    const resizeObserver = new ResizeObserver(() => {
+      map.invalidateSize({ animate: false });
+    });
+    resizeObserver.observe(mapElement);
+
     return () => {
+      resizeObserver.disconnect();
       map.remove();
       mapRef.current = null;
       markerLayerRef.current = null;
@@ -296,12 +303,12 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
           </button>
 
           <div id="peta-umkm-panel" className={`${isPanelOpen ? "block" : "hidden"} lg:block`}>
-            <div className="border-y border-[var(--line)] px-5 py-5 lg:border-t-0">
+            <div className="border-y border-[var(--line)] px-4 py-4 sm:px-5 sm:py-5 lg:border-t-0">
               <span className="hidden text-[10px] font-extrabold uppercase tracking-[0.16em] text-[var(--muted)] lg:inline">Direktori Peta</span>
-              <h2 className="mt-1 font-serif text-2xl font-medium leading-tight text-[var(--ink)]">UMKM di Karangtalun</h2>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">Pilih usaha untuk melihat informasi, rute, dan kontaknya.</p>
+              <h2 className="mt-0.5 font-serif text-xl font-medium leading-tight text-[var(--ink)] sm:text-2xl">UMKM di Karangtalun</h2>
+              <p className="mt-1 text-sm leading-5 text-[var(--muted)] sm:leading-6">Pilih usaha untuk melihat informasi, rute, dan kontaknya.</p>
 
-              <label className="relative mt-5 block">
+              <label className="relative mt-4 block">
                 <span className="sr-only">Cari UMKM pada peta</span>
                 <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--muted-2)]" aria-hidden="true" />
                 <input
@@ -323,12 +330,12 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
                 ) : null}
               </label>
 
-              <div className="mt-4 flex gap-2 overflow-x-auto pb-1 no-scrollbar" aria-label="Filter kategori UMKM">
+              <div className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 no-scrollbar sm:mx-0 sm:px-0" aria-label="Filter kategori UMKM">
                 <button
                   type="button"
                   onClick={() => setCategory("all")}
                   aria-pressed={category === "all"}
-                  className={`inline-flex min-h-[40px] shrink-0 items-center rounded-full px-4 text-[10px] font-extrabold uppercase tracking-[0.1em] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] ${category === "all" ? "bg-[var(--teal)] text-white" : "border border-[var(--line)] bg-[var(--paper-2)] text-[var(--ink)]"}`}
+                  className={`inline-flex min-h-[44px] shrink-0 items-center rounded-full px-4 text-[10px] font-extrabold uppercase tracking-[0.1em] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] ${category === "all" ? "bg-[var(--teal)] text-white" : "border border-[var(--line)] bg-[var(--paper-2)] text-[var(--ink)]"}`}
                 >
                   Semua
                 </button>
@@ -338,7 +345,7 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
                     type="button"
                     onClick={() => setCategory(item)}
                     aria-pressed={category === item}
-                    className={`inline-flex min-h-[40px] shrink-0 items-center rounded-full px-4 text-[10px] font-extrabold uppercase tracking-[0.1em] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] ${category === item ? "bg-[var(--teal)] text-white" : "border border-[var(--line)] bg-[var(--paper-2)] text-[var(--ink)]"}`}
+                    className={`inline-flex min-h-[44px] shrink-0 items-center rounded-full px-4 text-[10px] font-extrabold uppercase tracking-[0.1em] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)] ${category === item ? "bg-[var(--teal)] text-white" : "border border-[var(--line)] bg-[var(--paper-2)] text-[var(--ink)]"}`}
                   >
                     {item}
                   </button>
@@ -439,7 +446,7 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
                 {shareFeedback ? <p className="mt-3 text-xs font-semibold text-[var(--teal)]" role="status" aria-live="polite">{shareFeedback}</p> : null}
               </article>
             ) : (
-              <div className="border-b border-[var(--line)] px-5 py-5">
+              <div className="hidden border-b border-[var(--line)] px-5 py-5 lg:block">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--teal)]/10 text-[var(--teal)]">
                   <Compass className="h-5 w-5" aria-hidden="true" />
                 </div>
@@ -448,7 +455,7 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
               </div>
             )}
 
-            <div className="px-5 py-4">
+            <div className="px-4 py-4 sm:px-5">
               <div className="mb-3 flex items-center justify-between gap-3">
                 <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[var(--muted)]">Hasil tersedia</h3>
                 <span className="text-xs font-semibold text-[var(--teal)]">{visibleLocations.length}</span>
@@ -484,7 +491,7 @@ export default function PetaMapCanvas({ locations }: PetaMapCanvasProps) {
           </div>
         </aside>
 
-        <div className="relative order-1 min-h-[350px] bg-[var(--paper-2)] lg:order-2 lg:min-h-[650px]">
+        <div className={`${styles.mapStage} order-1 lg:order-2`}>
           <div ref={mapElementRef} className={styles.mapCanvas} role="region" aria-label="Peta interaktif UMKM Dusun Karangtalun" />
           <div className="pointer-events-none absolute left-4 top-4 z-[500] flex max-w-[calc(100%-2rem)] items-center gap-2 rounded-full border border-white/75 bg-[var(--paper)] px-3 py-2 text-xs font-semibold text-[var(--ink)] shadow-sm">
             <Store className="h-4 w-4 shrink-0 text-[var(--teal)]" aria-hidden="true" />

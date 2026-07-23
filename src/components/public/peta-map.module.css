@@ -1,6 +1,13 @@
+.mapStage {
+  position: relative;
+  height: clamp(320px, 52svh, 480px);
+  min-height: 320px;
+  background: #e4e8df;
+}
+
 .mapCanvas {
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  inset: 0;
   background: #e4e8df;
 }
 
@@ -36,6 +43,13 @@
 
 .mapCanvas :global(.leaflet-control-attribution a) {
   color: #073933;
+}
+
+@media (min-width: 1024px) {
+  .mapStage {
+    height: 650px;
+    min-height: 650px;
+  }
 }
 
 .markerWrapper {
