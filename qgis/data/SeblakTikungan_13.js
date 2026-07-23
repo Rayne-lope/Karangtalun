@@ -1,1 +1,0 @@
-var json_SeblakTikungan_13 = {"type":"FeatureCollection","name":"SeblakTikungan_13","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Seblak Tikungan","LATITUDE":-7.66651,"LANGITUDE":110.27184},"geometry":{"type":"Point","coordinates":[110.2718356,-7.666510877]}}]}

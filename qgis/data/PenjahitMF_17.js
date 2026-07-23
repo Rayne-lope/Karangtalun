@@ -1,1 +1,0 @@
-var json_PenjahitMF_17 = {"type":"FeatureCollection","name":"PenjahitMF_17","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Penjahit MF","LATITUDE":-7.66579,"LANGITUDE":110.27207,"FOTO":"PENJAHIT MF.png"},"geometry":{"type":"Point","coordinates":[110.2720722,-7.665788349]}}]}

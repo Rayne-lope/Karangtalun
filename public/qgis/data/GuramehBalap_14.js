@@ -1,1 +1,0 @@
-var json_GuramehBalap_14 = {"type":"FeatureCollection","name":"GuramehBalap_14","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Gurameh Balap Farm","LATITUDE":-7.66555,"LANGITUDE":110.27223,"FOTO":"GRAMEH_BALAP.png"},"geometry":{"type":"Point","coordinates":[110.2722315,-7.665545193]}}]}

@@ -1,1 +1,0 @@
-var json_MGWDKarangTalun_5 = {"type":"FeatureCollection","name":"MGWDKarangTalun_5","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"MGWD Karang Talun","LATITUDE":-7.66615,"LANGITUDE":110.27046},"geometry":{"type":"Point","coordinates":[110.2704629,-7.666148148]}}]}

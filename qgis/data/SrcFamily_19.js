@@ -1,1 +1,0 @@
-var json_SrcFamily_19 = {"type":"FeatureCollection","name":"SrcFamily_19","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"SRC FAMILY KARANGTALUN","LATITUDE":-7.66639,"LANGITUDE":110.27186,"FOTO":"SRC _FAMILY.png"},"geometry":{"type":"Point","coordinates":[110.2718595,-7.666389488]}}]}

@@ -1,1 +1,0 @@
-var json_SDN2KARANGTALUN_9 = {"type":"FeatureCollection","name":"SDN2KARANGTALUN_9","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"SDN 2 KARANGTALUN","LATITUDE":-7.66603,"LANGITUDE":110.27075,"FOTO":"SDN 2 KARANGTALUN.png"},"geometry":{"type":"Point","coordinates":[110.2707463,-7.666029094]}}]}

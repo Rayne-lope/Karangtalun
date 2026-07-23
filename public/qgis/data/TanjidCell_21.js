@@ -1,1 +1,0 @@
-var json_TanjidCell_21 = {"type":"FeatureCollection","name":"TanjidCell_21","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"FASILITAS":"Tanjid Cell","LATITUDE":-7.66553,"LANGITUDE":110.27265,"FOTO":"TANJID CELL.png"},"geometry":{"type":"Point","coordinates":[110.2726514,-7.665532771]}}]}

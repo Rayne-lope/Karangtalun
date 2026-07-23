@@ -6,11 +6,14 @@ import {
   StaticPageLayout,
   TwoColumnLayout,
 } from "@/components/public/static-page";
+import { PetaMap } from "@/components/public/peta-map";
+import { getActiveUmkm } from "@/lib/data";
+import { getPetaUmkmLocations } from "@/lib/karangtalun-map";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Peta Wilayah",
-  description: "Peta interaktif dan informasi lokasi Dusun Karangtalun, Kecamatan Ngluwar, Kabupaten Magelang.",
+  description: "Peta interaktif lokasi UMKM Dusun Karangtalun, Kecamatan Ngluwar, Kabupaten Magelang.",
   path: "/peta",
 });
 
@@ -22,42 +25,31 @@ const locationDetails = [
   { label: "Kode Pos", value: "56483" },
 ];
 
-export default function PetaPage() {
+export default async function PetaPage() {
+  const locations = getPetaUmkmLocations(await getActiveUmkm());
+
   return (
     <StaticPageLayout>
       <StaticPageHeader
-        eyebrow="Lokasi Dusun"
-        title="Peta Wilayah"
-        description="Temukan lokasi Dusun Karangtalun di Kecamatan Ngluwar, Kabupaten Magelang, Jawa Tengah melalui peta interaktif."
+        eyebrow="Lokasi UMKM"
+        title="Peta Karangtalun"
+        description="Jelajahi lokasi usaha warga Karangtalun, lihat informasi singkat, lalu buka rute atau hubungi pelaku UMKM secara langsung."
       />
       <StaticPageContainer>
-        {/* Peta Utama — responsif di HP */}
-        <section className="overflow-hidden rounded-[22px] sm:rounded-[28px] border border-[var(--line)] bg-[var(--paper)] shadow-[0_14px_40px_rgba(7,57,51,0.04)]">
-          <div className="h-[320px] sm:h-[480px] w-full bg-[var(--paper-2)]">
-            <iframe
-              title="Peta Dusun Karangtalun, Ngluwar, Magelang"
-              src="/qgis/index.html"
-              className="h-full w-full border-0"
-              loading="lazy"
-              allowFullScreen
-            />
-          </div>
-        </section>
+        <PetaMap locations={locations} />
 
         <TwoColumnLayout
           main={
-            <InfoBlock title="Keterangan Wilayah">
+            <InfoBlock title="Menemukan UMKM Lokal">
               <p>
-                Dusun Karangtalun terletak di Kecamatan Ngluwar, Kabupaten
-                Magelang, Provinsi Jawa Tengah. Dusun ini dapat diakses melalui
-                jalur darat dari berbagai arah dan berada tidak jauh dari
-                pusat kecamatan.
+                Pilih marker hijau atau nama usaha pada daftar untuk membuka
+                profil, rute, serta kontak UMKM. Peta hanya menampilkan usaha
+                yang telah memiliki kecocokan lokasi terverifikasi.
               </p>
               <p>
-                Peta di atas menampilkan lokasi umum dusun. Untuk koordinat
-                lebih akurat beserta batas-batas wilayah administratif, silakan
-                hubungi kantor dusun atau merujuk pada peta wilayah resmi dari
-                pemerintah kabupaten.
+                Batas dusun, jalan, dan aliran sungai ditampilkan sebagai
+                konteks wilayah. Lokasi usaha baru akan muncul setelah data
+                koordinatnya tersedia dan terverifikasi.
               </p>
             </InfoBlock>
           }

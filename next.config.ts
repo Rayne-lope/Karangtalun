@@ -46,12 +46,10 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               // Fonts
               "font-src 'self' https://fonts.gstatic.com",
-              // Images: self + Supabase storage + data URIs (for image-input preview)
+              // Images: self + Supabase storage + OpenStreetMap tiles + data URIs for previews.
               supabaseHostname
-                ? `img-src 'self' data: blob: https://${supabaseHostname}`
-                : "img-src 'self' data: blob:",
-              // Frames: Google Maps embed and self for QGIS
-              "frame-src 'self' https://www.google.com",
+                ? `img-src 'self' data: blob: https://tile.openstreetmap.org https://${supabaseHostname}`
+                : "img-src 'self' data: blob: https://tile.openstreetmap.org",
               // Connections: Supabase API
               supabaseHostname
                 ? `connect-src 'self' https://${supabaseHostname} wss://${supabaseHostname}`
